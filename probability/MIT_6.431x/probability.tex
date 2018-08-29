@@ -1,0 +1,905 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template: Article
+%
+% Por: Abrantes Araújo Silva Filho
+%      abrantesasf@gmail.com
+%
+% Citação: Se você gostou deste template, por favor ajude a divulgá-lo mantendo
+%          o link para meu repositório GitHub em:
+%          https://github.com/abrantesasf/LaTeX
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configura o tipo de documento, papel, tamanho da fonte e informações básicas
+%%% para as proriedades do PDF/DVIPS e outras propriedades do documento
+\RequirePackage{ifpdf}
+\ifpdf
+  % Classe, língua e tamanho da fonte padrão. Outras opções a considerar:
+  %   draft
+  %   onecolumn (padrão) ou twocolumn (OU usar o package multicol)
+  %   fleqn com ou sem leqno (alinhamento à esquerda das fórmulas e dos números)
+  %   oneside (padrão para article ou report) ou twoside (padrão para book)
+  \documentclass[pdftex, brazil, 12pt, twoside]{article}
+\else
+  % Classe, língua e tamanho da fonte padrão. Outras opções a considerar:
+  %   draft
+  %   onecolumn (padrão) ou twocolumn (OU usar o package multicol)
+  %   fleqn com ou sem leqno (alinhamento à esquerda das fórmulas e dos números)
+  %   oneside (padrão para article ou report) ou twoside (padrão para book)
+  \documentclass[brazil, 12pt]{article}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Carrega pacotes iniciais necessários para estrutura de controle e para a
+%%% criação e o parse de novos comandos
+\usepackage{ifthen}
+\usepackage{xparse}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configuração do tamanho da página, margens, espaçamento entrelinhas e, se
+%%% necessário, ativa a indentação dos primeiros parágrafos.
+\ifpdf
+  \usepackage[pdftex]{geometry}
+\else
+  \usepackage[dvips]{geometry}
+\fi
+\geometry{a4paper, left=2.6cm, right=4.0cm, top=3.0cm, bottom=3.4cm}
+
+\usepackage{setspace}
+  \singlespacing
+  %\onehalfspacing
+  %\doublespacing
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configurações de cabeçalho e rodapé:
+\usepackage{fancyhdr}
+\setlength{\headheight}{1cm}
+\setlength{\footskip}{1.5cm}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.0pt}
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{%
+  \markboth{\uppercase{#1}}{}}
+\renewcommand{\subsectionmark}[1]{%
+  \markright{\uppercase{\thesubsection \hspace{0.1cm} #1}}{}}
+\fancyhead{}
+\fancyfoot{}
+\newcommand{\diminuifonte}{%
+    \fontsize{9pt}{9}\selectfont
+}
+\newcommand{\aumentafonte}{%
+    \fontsize{12}{12}\selectfont
+}
+% Configura cabeçalho e rodapé para documentos TWOSIDE
+\fancyhead[EL]{\textbf{\thepage}}
+\fancyhead[EC]{}
+\fancyhead[ER]{\diminuifonte \textbf{\leftmark}}
+\fancyhead[OR]{\textbf{\thepage}}
+\fancyhead[OC]{}
+\fancyhead[OL]{\diminuifonte \textbf{\rightmark}}
+\fancyfoot[EL,EC,ER,OR,OC,OL]{}
+% Configura cabeçalho e rodapé para documentos ONESIDE
+%\lhead{ \fancyplain{}{sup esquerdo} }
+%\chead{ \fancyplain{}{sup centro} }
+%\rhead{ \fancyplain{}{\thesection} }
+%\lfoot{ \fancyplain{}{inf esquerdo} }
+%\cfoot{ \fancyplain{}{inf centro} }
+%\rfoot{ \fancyplain{}{\thepage} }
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Configurações de encoding, lingua e fontes:
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+
+% Altera a fonte padrão do documento (nem todas funcionam em modo math):
+%   phv = Helvetica
+%   ptm = Times
+%   ppl = Palatino
+%   pbk = bookman
+%   pag = AdobeAvantGarde
+%   pnc = Adobe NewCenturySchoolBook
+\renewcommand{\familydefault}{ppl}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Carrega pacotes para referências cruzadas, citações dentro do documento,
+%%% links para internet e outros.Configura algumas opções.
+%%% Não altere a ordem de carregamento dos packages.
+\usepackage{varioref}
+\ifpdf
+  \usepackage[pdftex]{hyperref}
+    \hypersetup{
+      % Informações variáveis em cada documento (MUDE AQUI!):
+      pdftitle={Probability --- The Science of Uncertainty and Data},
+      pdfauthor={MITx on EdX},
+      pdfsubject={MITx 6.431x},
+      pdfkeywords={probability, statistics, data science},
+      pdfinfo={
+        CreationDate={}, % Ex.: D:AAAAMMDDHH24MISS
+        ModDate={}       % Ex.: D:AAAAMMDDHH24MISS
+      },
+      % Coisas que você não deve alterar se não souber o que está fazendo:
+      unicode=true,
+      pdflang={pt-BR},
+      bookmarksopen=true,
+      bookmarksnumbered=true,
+      bookmarksopenlevel=5,
+      pdfdisplaydoctitle=true,
+      pdfpagemode=UseOutlines,
+      pdfstartview=FitH,
+      pdfcreator={LaTeX with hyperref package},
+      pdfproducer={pdfTeX},
+      pdfnewwindow=true,
+      colorlinks=true,
+      citecolor=green,
+      linkcolor=red,
+      filecolor=cyan,
+      urlcolor=blue
+    }
+\else
+  \usepackage{hyperref}
+\fi
+\usepackage{cleveref}
+\usepackage{url}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Carrega bibliotecas de símbolos (matemáticos, físicos, etc.), fontes
+%%% adicionais, e configura algumas opções
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{siunitx}
+  \sisetup{group-separator = {.}}
+  \sisetup{group-digits = {false}}
+  \sisetup{output-decimal-marker = {,}}
+\usepackage{bm}
+\usepackage{cancel}
+% Altera separador decimal via comando, se necessário (prefira o siunitx):
+%\mathchardef\period=\mathcode`.
+%\DeclareMathSymbol{.}{\mathord}{letters}{"3B}
+  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Carrega packages relacionados à computação
+\usepackage{algorithm2e}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{listings}
+  \lstset{literate=
+    {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+    {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+    {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+    {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+    {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+    {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+    {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+    {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+    {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+    {ű}{{\H{u}}}1 {Ű}{{\H{U}}}1 {ő}{{\H{o}}}1 {Ő}{{\H{O}}}1
+    {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+    {€}{{\euro}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
+    {»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
+  }
+  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Ativa suporte extendido a cores
+\usepackage[svgnames]{xcolor} % Opções de cores: usenames (16), dvipsnames (64),
+                              % svgnames (150) e x11names (300).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Suporte à importação de gráficos externos
+\ifpdf
+  \usepackage[pdftex]{graphicx}
+\else
+  \usepackage[dvips]{graphicx}
+\fi
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Suporte à criação de gráficos proceduralmente na LaTeX:
+\usepackage{tikz}
+  \usetikzlibrary{arrows,automata,backgrounds,matrix,patterns,positioning,shapes,shadows}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Packages para tabelas
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{tabu}
+\usepackage{lscape}
+\usepackage{colortbl}  
+\usepackage{booktabs}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Packages ambientes de listas
+\usepackage{enumitem}
+\usepackage[ampersand]{easylist}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Packages para suporte a ambientes floats, captions, etc.:
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{placeins}
+\usepackage{caption}
+\usepackage{sidecap}
+\usepackage{subcaption}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Meus comandos específicos:
+% Commando para ``italizar´´ palavras em inglês (e outras línguas!):
+\newcommand{\ingles}[1]{\textit{#1}}
+
+% Commando para colocar o espaço correto entre um número e sua unidade:
+\newcommand{\unidade}[2]{\ensuremath{#1\,\mathrm{#2}}}
+\newcommand{\unidado}[2]{{#1}\,{#2}}
+
+% Produz ordinal masculino ou feminino dependendo do segundo argumento:
+\newcommand{\ordinal}[2]{%
+#1%
+\ifthenelse{\equal{a}{#2}}%
+{\textordfeminine}%
+{\textordmasculine}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Hifenização específica quando o LaTeX/Babel não conseguirem hifenizar:
+\babelhyphenation{Git-Hub}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% COMEÇA O DOCUMENTO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\title{Probability --- The Science of Uncertainty and Data}
+\author{MITx 6.431x}
+\date{27/08/2018 -- 23/12/2018}
+\maketitle
+\tableofcontents
+\newpage
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Welcome to 6.431x (2018--08--27)}
+\label{welcome}
+
+The course site is now open. We have released Unit 0, which introduces the course
+and summarizes the objectives and what you can expect to learn. It also contains
+lots of important information that you should read over carefully. We have also
+released an Entrance Survey, and will appreciate your help in improving this course.
+Unit 1 will be released next Monday.
+
+This is a graduate level version of 6.041x, which has been offered several times,
+and we are once more excited to offer this material. We hope that you will find
+this course an enriching educational experience, helping you to master the fundamental
+concepts and tools of probability theory and its applications.
+
+This is a \emph{challenging} class. It is exactly at the same level, breadth, and
+depth as the corresponding residential MIT offering. MIT students typically \emph{spend
+  about 12 hours a week} on this subject, and you can expect to need a similar time
+commitment, perhaps even a bit more, depending on your background. But even if you
+do not have the time to do everything, you may still gain a lot by following just
+parts of the course.
+
+We look forward to seeing you in class! And tell your friends about it!
+
+Best wishes,
+Prof. John Tsitsiklis, Eren Kizildag (TA), and your course team
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Unit 0: Overview}
+\label{ovw0}
+
+Unit 0 is the first unit available in the Courseware. It introduces the course and
+summarizes the objectives and what you can expect to learn. It also contains lots
+of important information that you should read over carefully.
+
+\paragraph{Course overview; Course introduction, objectives, and study guide}
+These sections introduce and overview the course and provide a guide for how to
+make the most of the wealth of materials that this course offers.
+
+\paragraph{Syllabus, calendar, and grading policy}
+Here you will find an outline of the units of this course, together with release
+and due dates. The same information is presented in a calendar format for your
+convenience. The grading policy is also explained in detail.
+
+\paragraph{edX tutorial}
+This sequence of videos gives a visual tutorial of how to use the basic elements
+of the edX platform.
+
+\paragraph{Discussion forum and collaboration guidelines}
+This section contains the course's guidelines for collaboration and using the
+dicussion forum. Please read them carefully and follow them throughout the course.
+
+\paragraph{Homework mechanics and standard notation}
+This section explains how to submit answers to problems and details the standard
+notation that should be used throughout the course when entering symbolic responses.
+Please read carefully and refer back to these documents when needed.
+
+\paragraph{Textbook information}
+This section describes how to access and navigate through the e-reader of excerpts
+from the course textbook. There is also information for purchasing a physical copy
+of the textbook as well as a link to textbook errata. While this textbook is
+recommended, the materials provided by this course are self-contained.
+
+\paragraph{Micromasters, Certificates, and Honor Pledge}
+This section provides information on how to earn a verified certificate for this
+course, as well as how to obtain the credential for the MITx Micromasters Program
+in Statistics and Data Science. You will also be asked to make a pledge to abide
+by the EdX Honor Code.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Course overview}
+\label{ovw0-co}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Course character and objectives}
+\label{ovw0-co-objectives}
+
+Video: \href{https://www.youtube.com/watch?v=OM3iEZGC2-k}{Course character and objectives}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Why study probability?}
+\label{ovw0-co-why}
+
+Video: \href{https://www.youtube.com/watch?v=cvVmmboMiyY}{Why study probability?}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Course contents}
+\label{ovw0-co-contents}
+
+Video: \href{https://www.youtube.com/watch?v=6EZKb-Lo9IQ}{Course contents}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Course introduction, objectives and study guide}
+\label{ovw0-ci}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Introduction}
+\label{ovw0-ci-intro}
+
+Welcome to 6.431x, an introduction to probabilistic models, including random
+processes and the basic elements of statistical inference.
+
+The world is full of uncertainty: accidents, storms, unruly financial markets,
+noisy communications. The world is also full of data. Probabilistic modeling and
+the related field of statistical inference are the keys to analyzing data and making
+scientifically sound predictions.
+
+The course covers all of the basic probability concepts, including:
+
+\begin{itemize}[noitemsep]
+\item multiple discrete or continuous random variables, expectations, and conditional distributions
+\item laws of large numbers
+\item the main tools of Bayesian inference methods
+\item an introduction to random processes (Poisson processes and Markov chains)
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Course objectives}
+\label{ovw0-ci-obj}
+
+Upon successful completion of this course, you will:
+
+\textbf{At a conceptual level:}
+
+\begin{itemize}[noitemsep]
+\item Master the basic concepts associated with \emph{probability models}.
+\item Be able to translate models described in words to mathematical ones.
+\item Understand the main concepts and assumptions underlying \emph{Bayesian and classical inference}.
+\item Obtain some familiarity with the range of \emph{applications of inference methods}.
+\end{itemize}
+
+\textbf{At a more technical level:}
+
+\begin{itemize}[noitemsep]
+\item Become familiar with basic and common \emph{probability distributions}.
+\item Learn how to use \emph{conditioning} to simplify the analysis of complicated models.
+\item Have facility manipulating \emph{probability mass functions}, \emph{densities}, and \emph{expectations}.
+\item Develop a solid understanding of the concept of \emph{conditional expectation} and its role in inference.
+\item Understand the power of \emph{laws of large numbers} and be able to use them when appropriate.
+\item Become familiar with the basic inference methodologies (for both \emph{estimation} and \emph{hypothesis testing}) and be able to apply them.
+\item Acquire a good understanding of two \emph{basic stochastic processes} (\emph{Bernoulli} and \emph{Poisson}) and their use in modeling.
+\item Learn how to formulate simple dynamical models as \emph{Markov chains} and analyze them.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Study guide}
+\label{ovw0-ci-sg}
+
+This class provides you with a great wealth of material, perhaps more than you can
+fully digest. This “guide" offers some tips about how to use this material.
+
+\paragraph{Start with the overview of a unit, when available.} This will help you
+get an overview of what is to happen next. Similarly, at the end of a unit, watch
+the unit summary to consolidate your understanding of the “big picture" and of the
+relation between different concepts.
+
+\paragraph{Watch the lecture videos.} You may want to download the slides (clean
+or annotated) at the beginning of each lecture, especially if you cannot receive
+high-quality streaming video. Some of the lecture clips proceed at a moderate speed.
+Whenever you feel comfortable, you may want to speed up the video and run it faster, at 1.5x.
+
+\paragraph{Do the exercises!} The exercises that follow most of the lecture clips are
+a most critical part of this class. Some of the exercises are simple adaptations of
+you may have just heard. Other exercises will require more thought. Do your best to
+solve them right after each clip --- do not defer this for later --- so that you can
+consolidate your understanding. After your attempt, whether successful or not, do
+look at the solutions, which you will be able to see as soon as you submit your own
+answers.
+
+\paragraph{Solved problems and additional materials.} In most of the units, we are
+providing you with many problems that are solved by members of our staff. We provide
+both video clips and written solutions. Depending on your learning style, you may
+pick and choose which format to focus on. But in either case, it is important that
+you get exposed to a large number of problems.
+
+\paragraph{The textbook.} If you have access to the textbook, you can find more precise
+statements of what was discussed in lecture, additional facts, as well as several
+examples. While the textbook is recommended, the materials provided by this course
+are self-contained. See the “Textbook information" tab in Unit 0 for more details.
+
+\paragraph{Problem sets.} One can really master the subject only by solving problems ---
+a large number of them. Some of the problems will be straightforward applications
+of what you have learned. A few of them will be more challenging. Do not despair
+if you cannot solve a problem – no one is expected to do everything perfectly.
+However, once the problem set solutions are released (which will happen on the due
+date of the problem set), make sure to go over the solutions to those problems
+that you could not solve correctly.
+
+\paragraph{Exams.} The midterm exams are designed so that in an on-campus version,
+learners would be given two hours. The final exam is designed so that in an on-campus
+version, learners would be given three hours. You should not expect to spend much more
+than this amount of time on them. In this respect, those weeks that have exams
+(and no problem sets!) will not have higher demands on your time. The level of
+difficulty of exam questions will be somewhere between the lecture exercises and
+homework problems.
+
+\paragraph{Time management.} The corresponding on-campus class is designed so that
+students with appropriate prerequisites spend about 12 hours each week on lectures,
+recitations, readings, and homework. You should expect a comparable effort, or more
+if you need to catch up on background material. In a typical week, there will be 2
+hours of lecture clips, but it might take you 4--5 hours when you add the time spent
+on exercises. Plan to spend another 3--4 hours watching solved problems and additional
+materials, and on textbook readings. Finally, expect about 4 hours spent on the
+weekly problem sets.
+
+\paragraph{Additional practice problems.} For those of you who wish to dive even
+deeper into the subject, you can find a good collection of problems at the end of
+each chapter of the print edition of the book, whose solutions are available online. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Syllabus, calendar, and grading policy}
+\label{ovw0-sy}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Syllabus}
+\label{ovw0-sy-sy}
+
+\textbf{6.431x Fall 2018 Syllabus}
+
+\begin{itemize}[noitemsep]
+\item Unit 0: Overview (released Tue. August 28)
+\item Unit 1: Probability models and axioms (released Mon. Sep 3; Sections 1.1--1.2)
+  \begin{itemize}[noitemsep]
+  \item L1: Probability models and axioms
+  \item Problem Set 1 due on Tue Sept 11
+  \end{itemize}
+\item Unit 2: Conditioning and independence (released Mon. Sept 10; Sections 1.3--1.5)
+  \begin{itemize}[noitemsep]
+  \item L2: Conditioning and Bayes' rule
+  \item L3: Independence
+  \item Problem Set 2 due on Tue Sept 18
+  \end{itemize}
+\item Unit 3: Counting (released Mon. Sept 17; Section 1.6)
+  \begin{itemize}[noitemsep]
+  \item L4: Counting
+  \item Problem Set 3 due on Tue Sept 25
+  \end{itemize}
+\item Unit 4: Discrete random variables (released Wed. Sept 19; Sections 2.1--2.7)
+  \begin{itemize}[noitemsep]
+  \item L5: Probability mass functions and expectations
+  \item L6: Variance; Conditioning on an event; Multiple r.v.'s
+  \item L7: Conditioning on a random variable; Independence of r.v.'s
+  \item Problem Set 4 due on Tue Oct 2
+  \end{itemize}
+\item Exam 1 (Timed) : Covers material from L1 to L7 (released Wed. Oct 3; due on Tue. Oct 9)
+\item Unit 5: Continuous random variables (released Mon. Oct 1; Sections 3.1--3.5)
+  \begin{itemize}[noitemsep]
+  \item L8: Probability density functions
+  \item L9: Conditioning on an event; Multiple r.v.'s
+  \item L10: Conditioning on a random variable; Independence; Bayes' rule
+  \item Problem Set 5 due on Tue. Oct 16
+  \end{itemize}
+\item Unit 6: Further topics on random variables (released Mon. Oct 15; Sections 4.1--4.3, 4.5)
+  \begin{itemize}[noitemsep]
+  \item L11: Derived distributions
+  \item L12: Sums of r.v.'s; Covariance and correlation
+  \item L13: Conditional expectation and variance revisited; Sum of a random number of r.v.'s
+  \item Problem Set 6 due on Tue. Oct 23
+  \end{itemize}
+\item Unit 7: Bayesian inference (released Mon. Oct 22 Sections 3.6, 8.1--8.4)
+  \begin{itemize}[noitemsep]
+  \item L14: Introduction to Bayesian inference
+  \item L15: Linear models with normal noise
+  \item L16: Least mean squares (LMS) estimation
+  \item L17: Linear least mean squares (LLMS) estimation
+  \item Problem Set 7a due on Tue. Oct 30
+  \item Problem Set 7b due on Tue. Nov 6
+  \end{itemize}
+\item Exam 2 (Timed): Covers material from L8 to L17 (released Wed. Nov 1; due on Nov 13)
+\item Unit 8: Limit theorems and classical statistics (released Mon. Nov 5; Sections 5.1--5.4, pp. 466--475)
+  \begin{itemize}[noitemsep]
+  \item L18: Inequalities, convergence, and the Weak Law of Large Numbers
+  \item L19: The Central Limit Theorem (CLT)
+  \item L20: An introduction to classical statistics
+  \item Problem Set 8 due on Tue. Nov 27
+  \end{itemize}
+\item Unit 9: Bernoulli and Poisson processes (released Tue. Nov 14; Sections 6.1-6-2)
+  \begin{itemize}[noitemsep]
+  \item L21: The Bernoulli process
+  \item L22: The Poisson process
+  \item L23: More on the Poisson process
+  \item Problem Set 9 due on Tue. Dec 4
+  \end{itemize}
+\item Unit 10: Markov chains (released Tue. Nov 26; Sections 7.1--7.4)
+  \begin{itemize}[noitemsep]
+    \item L24: Finite-state Markov chains
+    \item L25: Steady-state behavior of Markov chains
+    \item L26: Absorption probabilities and expected time to absorption
+    \item Problem Set 10 due on Tue. Dec 11
+  \end{itemize}
+\item Final Exam (Timed) (released Wed. Dec 12; due on Sun. Dec 23)
+\end{itemize}
+
+\textbf{Note: Problem set and exam due dates are at the end of the specified date,
+  at 23:59 UTC.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Calendar}
+\label{ovw0-sy-calendar}
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    \label{fig:calendar}
+    \fbox{\includegraphics[scale=0.8]{imagens/calendar.png}}
+  \end{center}
+\end{figure}
+
+Notes:
+
+\begin{itemize}[noitemsep]
+\item The due dates for the weekly problem sets and the exams are fixed and cannot
+  be changed or modified for any individuals. Please plan accordingly.
+\item Problem set and exam due dates are at the end of the specified date, at 23:59 UTC.
+\item The calendar above shows only Tuesdays, Wednesdays, and Thursdays, since these
+  are the only days of the week when materials will be released or due, except
+  the final exam.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Gradingp policy}
+\label{ovw0-sy-grades}
+
+\paragraph{Grading policy} Your overall score in this class will be a weighted
+average of your scores for the different components, with the following weights:
+
+\begin{itemize}[noitemsep]
+\item 20\% for the lecture exercises (divided equally among the 26 lectures)
+\item 40\% for the problem sets (divided equally among 11 problem sets)
+\item 12\% for the first midterm exam (timed)
+\item 12\% for the second midterm exam (timed)
+\item 16\% for the final exam (timed)
+\end{itemize}
+
+To earn a verified certificate for this course, you will need to obtain an
+\emph{overall score} of 60\% or more of the maximum possible overall score.
+
+Note that not every problem set or set of lecture exercises will have the same
+number of raw points. For example, Problem Set 1 may have 30 points and Problem
+Set 2 may have 35 points. However, each one receives the same weight for the
+purposes of calculating your overall score.
+
+As an illustrative example, if you receive 20 points out of 30 on Problem Set 1,
+this will contribute [Math Processing Error] to your overall score. Similarly, if
+you receive 30 points out of 35 on Problem Set 2, this will contribute
+[Math Processing Error] to your overall score.
+
+Under the “Progress" tab at the top, you can see your score broken down for each
+assignment, as well as a summary plot.
+
+\paragraph{Timed Exams} The 2 midterm exams and one final exam are \emph{timed exams}.
+This means that each exam is available for approximately a week, but once you open
+the exam, there is a limited amount of time (48 hours), counting from when you start,
+within which you must complete the exam. Please plan in advance for the exams. If you
+do not complete the whole exam during the allowed time, you will miss the points
+associated with the questions that have not been answered. The exams are designed
+to assess your knowledge. There are no extensions granted to these deadlines.
+You can find the exam dates on the calendar on the previous page. Note that the
+timed exams cannot be completed using the edX mobile app.
+
+\paragraph{MITx Committment to Accessibility} If you have a disability-related
+request regarding accessing an MITx course, including exams, please contact the course
+team as early in the course as possible (at least 2 weeks in advance of exams opening)
+to allow us time to respond in advance of course deadlines. Requests are reviewed
+via an interactive process to meet accessibility requirements for learners with
+disabilities and uphold the academic integrity for MITx.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{edX Tutorial}
+\label{ovw0-edx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Basics}
+\label{ovw0-edx-basics}
+
+Video: \href{https://www.youtube.com/watch?v=OEoXaMPEzfM}{edX Basics}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Courseware navigation}
+\label{ovw0-edx-navigation}
+
+Video: \href{https://www.youtube.com/watch?v=7m8pab1MfYY}{Courseware navigation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Top-level navigation}
+\label{ovw0-edx-top-nav}
+
+Video: \href{https://www.youtube.com/watch?v=pflzzK47wEo}{Top-level navigation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Discussion forums}
+\label{ovw0-edx-forum}
+
+Video: \href{https://www.youtube.com/watch?v=Q-rY8DIwYgg}{Discussion forums}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Summary}
+\label{ovw0-edx-}
+
+Video: \href{https://www.youtube.com/watch?v=RQdyRhHDlRo}{Summary}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Discussion forum and collaboration guidelines}
+\label{ovw0-forum}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Discussion forum guidelines}
+\label{ovw0-forum-guide}
+
+\paragraph{Discussion forum overview} The course provides an online discussion
+forum for you to communicate with the course
+team and other learners. You may access the forum through the “Discussion" tab at the
+top of the page, as well as through many embedded discussions within each unit.
+We recommend using the embedded discussions within each unit to discuss topics related
+to a specific unit's materials, whether it's lectures, solved problems, or problem
+set problems. Please see the guidelines below for more information on how to use
+these embedded discussions.
+
+For other more general discussions, you may use the “Discussion" tab at the top of
+the page. When creating a new post, \emph{please choose one of the following categories that
+best describes your post}:
+
+\begin{itemize}[noitemsep]
+\item \emph{Introductions}: Introduce yourself to your fellow learners and find
+  out more about them!
+\item \emph{Micromasters}: Ask questions related to the
+  \href{https://www.edx.org/micromasters/mitx-statistics-and-data-science}{MITx
+    Micromaster Program in Statistics and Data Science} and meet other Micromasters
+  fellows!
+\item \emph{Course Feedback}: Let the course team know how you are finding the course,
+  what you think works well, and what you would like to see improved.
+\item \emph{Technical Problems}: Let the course team know about any technical issues
+  you are dealing with (e.g., playing videos, entering answers, etc).
+\item \emph{General}: Other general discussions.
+\end{itemize}
+
+\paragraph{Discussion forum guidelines} The discussion forum is the main way for you
+to communicate with the course team and other learners. We hope it contributes to a
+sense of community and serves as a useful resource for your learning. Here are some
+guidelines to help you successfully navigate and interact on the forum:
+
+\begin{itemize}[noitemsep]
+\item \emph{Use discussion while working through the material}. Beginning with Unit 1,
+  each lecture will contain an embedded discussion located at the bottom of the lecture
+  overview clip, which is the first or second clip of that lecture sequence. You should
+  discuss anything related to that lecture's video clips or exercises there. Click
+  “Show Discussion" to see all discussions associated with the lecture, and click
+  “Add a Post" to post a new topic. In addition, every solved problem and problem set
+  problem will have its own embedded discussion located at the bottom of their respective
+  pages. As with the lecture discussions, click “Show Discussion" and “Add a Post" to
+  see and create discussion topics related to that specific problem. We recommend that
+  you use these in-page discussion boards to help focus discussions on specific topics.
+\item \emph{Use informative topic titles and tags}. To make it easier to identify relevant
+  discussion topics, please use informative titles and tags when creating a new discussion
+  topic. We suggest using titles or tags that are as informative as possible, e.g.,
+  “lecture X, exercise Y on topic W, clarify part Z"
+\item \emph{Be very specific}. Provide as much information as possible about what you need
+  help for: Which part of what problem or video? Why do you not understand the question?
+  Do you need help understanding a particular concept? What have you tried doing so far?
+  Use a descriptive title to your post. This will attract the attention of other learners
+  having the same issue.
+\item \emph{Observe the honor code}. We encourage collaboration and help, but please do
+  not ask for nor post problem solutions.
+\item \emph{Upvote good posts}. This applies to questions and answers. Click on the green
+  plus button so that good posts can be found more easily.
+\item \emph{Search before asking}. The forum can become hard to use if there are too many
+  threads, and good discussions happen when people participate in the same thread. Before
+  asking a question, use the search feature by clicking on the magnifying glass on the
+  left-hand side.
+\item \emph{Write clearly}. We know that English is a second language for many of you but
+  correct grammar will help others to respond. Avoid ALL CAPS, abbrv of wrds (abbreviating
+  words), and excessive punctuation!!!!
+\end{itemize}
+
+\paragraph{Please Introduce Yourself!} Let's get started by introducing yourselves on the
+discussion forum. A lot of the learning in this class will happen in your interactions with
+each other. Click on the post titled “Introduce yourself!" below, and respond to it by
+telling everyone your name, where you are from, why you are taking this course, and whatever
+else you would like to share! Your post will be indexed in the “Introductions"
+category in the forum.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Collaboration guidelines}
+\label{ovw0-collab-guide}
+
+We encourage you to interact with your fellow learners and engage in active discussion
+about the course. Please use the guidelines below for acceptable collaboration.
+The staff will be proactive in removing posts and replies in the discussion forum
+that have stepped over the line.
+
+\begin{itemize}[noitemsep]
+\item Given a problem, it is ok to discuss the general approach to solving the problem.
+\item You can work jointly to come up with the general steps for the solution.
+\item It is ok to get a hint, or several hints for that matter, if you get stuck while
+  solving a problem.
+\item You should work out the details of the solution yourself.
+\item It is not ok to take someone else's solution and simply copy the answers
+  from their solution into your checkboxes.
+\item It is not ok to take someone else's formula and plug in your own numbers
+  to get the final answer.
+\item It is not ok to post answers to homework and lab problems before the
+  submission deadline.
+\item It is not ok to look at a full step-by-step solution to a problem before
+  the submission deadline.
+\item It is ok to have someone show you a few steps of a solution where you have
+  been stuck for a while, provided of course, you have attempted to solve it
+  yourself without success.
+\item After you have collaborated with others in generating a correct solution,
+  a good test to see if you were engaged in acceptable collaboration is to make
+  sure that you are able to do the problem on your own. 
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Homework mechanics and standard notation}
+\label{ovw0-hw}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Checking and submitting an answer}
+\label{ovw0-hw-checking}
+
+\paragraph{Checking and submitting an answer} For each problem, you will have between
+2 to 5 attempts to submit an answer, with the exception of problems where an attempt
+essentially reveals the answer (e.g., True/False questions), for which you will be
+limited to a single attempt.
+
+To submit your answer, click the “Submit " button. This will automatically submit
+the problem for grading purposes, and the edX platform is able to verify your answer
+and give you immediate feedback as to whether or not your answer is correct. To save
+your answer without submitting it for grading purposes, click the “Save" button.
+Your answer will be restored when you return to the problem.
+
+The number of attempts allowed as well as the number of attempts you've already made
+will always be visible on a problem's page at the bottom, next to the “Check" button.
+Please note that for problems consisting of multiple parts, hitting the button will count
+as an attempt for all parts of the problem. Unfortunately, it is not possible to submit
+answers for one part at a time.
+
+For lecture exercises, a “Show Answer(s)" button will appear immediately after you
+submit the correct answer or use all of your attempts. Clicking this button will
+reveal the correct answers and solutions.
+
+For homework problems, the “Show Answer(s)" button will appear after the due date
+of the homework.
+
+You are strongly encouraged to look at the solutions even if your answer is correct.
+
+\paragraph{Answer formats} This course will use several answer formats:
+
+\begin{itemize}[noitemsep]
+\item Multiple choice: Select the correct option from the dropdown menu or radio buttons.
+\item Numerical answers: Enter a number, either in decimal (e.g., '3.14159') or fractional
+  form (e.g., '22/7'). Do not enter any non-numerical letters or symbols. To account for
+  rounding, the system will accept a range of answers as correct. Unless otherwise specified
+  in the problem, the default tolerance range will be +/-3\% of the correct answer.
+\item Symbolic answers: Some problems will ask for a symbolic answer (e.g., 'n*(n+1)/2').
+  See the next section on “Standard notation" for details on how to submit such answers. 
+\end{itemize}
+
+Below are some example problems for you to familiarize yourselves with how these problem
+types work with different number of attempts. These problems are not graded and have no
+impact on your grade. 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Textbook information}
+\label{ovw0-book-}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Entrance survey}
+\label{ovw0-survey-}
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% TERMINA O DOCUMENTO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
+
+
+
+
+
+
+
+
