@@ -1,3 +1,7 @@
+## Ignorar vídeos
+*.mp4
+*.srt
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
