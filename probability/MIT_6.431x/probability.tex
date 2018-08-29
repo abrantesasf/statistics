@@ -273,9 +273,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-\title{Probability --- The Science of Uncertainty and Data}
+\title{Probability:\\
+  The Science of Uncertainty and Data}
 \author{MITx 6.431x}
-\date{27/08/2018 -- 23/12/2018}
+\date{2018/08/28 -- 2018/12/23}
 \maketitle
 \tableofcontents
 \newpage
@@ -286,7 +287,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Welcome to 6.431x (2018--08--27)}
+\section{Welcome to 6.431x (2018/08/28)}
 \label{welcome}
 
 The course site is now open. We have released Unit 0, which introduces the course
@@ -318,7 +319,7 @@ Prof. John Tsitsiklis, Eren Kizildag (TA), and your course team
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Unit 0: Overview}
+\section{Unit 0: Overview (2018/08/28)}
 \label{ovw0}
 
 Unit 0 is the first unit available in the Courseware. It introduces the course and
@@ -370,18 +371,21 @@ by the EdX Honor Code.
 \label{ovw0-co-objectives}
 
 Video: \href{https://www.youtube.com/watch?v=OM3iEZGC2-k}{Course character and objectives}
+(\href{Unit-0/Overview1\_transcripts.pdf}{transcripts}, \href{Unit-0/Overview1\_slides.pdf}{slides})
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Why study probability?}
 \label{ovw0-co-why}
 
 Video: \href{https://www.youtube.com/watch?v=cvVmmboMiyY}{Why study probability?}
+(\href{Unit-0/Overview2\_transcripts.pdf}{transcripts}, \href{Unit-0/Overview2\_slides.pdf}{slides})
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Course contents}
 \label{ovw0-co-contents}
 
 Video: \href{https://www.youtube.com/watch?v=6EZKb-Lo9IQ}{Course contents}
+(\href{Unit-0/Overview3\_transcripts.pdf}{transcripts}, \href{Unit-0/Overview3\_slides.pdf}{slides})
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -706,7 +710,7 @@ Video: \href{https://www.youtube.com/watch?v=RQdyRhHDlRo}{Summary}
 \label{ovw0-forum}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Discussion forum guidelines}
+\subsubsection{Discussion forum guidelines}
 \label{ovw0-forum-guide}
 
 \paragraph{Discussion forum overview} The course provides an online discussion
@@ -782,7 +786,7 @@ else you would like to share! Your post will be indexed in the “Introductions"
 category in the forum.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Collaboration guidelines}
+\subsubsection{Collaboration guidelines}
 \label{ovw0-collab-guide}
 
 We encourage you to interact with your fellow learners and engage in active discussion
@@ -862,21 +866,280 @@ You are strongly encouraged to look at the solutions even if your answer is corr
 
 Below are some example problems for you to familiarize yourselves with how these problem
 types work with different number of attempts. These problems are not graded and have no
-impact on your grade. 
+impact on your grade.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Standard notation}
+\label{ovw0-hw-standard}
+
+Many exercises and problems throughout the course will ask you to provide an
+algebraic answer in terms of symbols. Please follow the guidelines below when
+entering your responses. Below your answer textbox, the system will also display,
+in a "pretty" format, what it has interpreted your input to be. However, this display
+is not perfect (for example, it does not catch all cases of missing close parentheses)
+so please also check your text input carefully.
+
+\begin{itemize}[noitemsep]
+\item Symbols are case-sensitive: $a$ and $A$ are different --- make sure to use
+  the correct case as specified in the problem
+\item Parentheses: make sure that your parentheses are properly balanced --- each
+  open parenthesis should have a matching close parenthesis!
+\item Elementary arithmetic operations: use the symbols + , - , * , / for addition,
+  subtraction, multiplication, and division, respectively
+\item $1+bc-d/e$ should be entered as 1+b*c-d/e
+\item For multiplication, use * explicitly:
+  \begin{itemize}[noitemsep]
+  \item in the example above, enter b*c; do NOT enter bc
+  \item for $2n(n+1)$, enter 2*n*(n+1); do NOT enter 2n(n+1)
+  \item although the "pretty" display underneath your answer looks correct if
+    you do not include * s, your answer will be marked incorrect!
+  \end{itemize}
+\item Exponents: use the symbol \^\ to denote exponentiation
+  \begin{itemize}[noitemsep]
+  \item $2^n$ should be entered as 2\^\,n
+  \item $x^{n+1}$ should be entered as x\^\,(n+1)
+  \end{itemize}
+\item Square root: use the string of letters sqrt , followed by enclosing what
+  is under the square root in parentheses
+  \begin{itemize}[noitemsep]
+  \item $\sqrt{-1}$ should be entered as sqrt(-1)
+  \end{itemize}
+\item Mathematical constants: use the symbol e for the base of the natural logarithm,
+  $e$; use the string of letters pi for $\pi$
+  \begin{itemize}[noitemsep]
+  \item $e^{i\pi}+1$ should be entered as e\^\,(i*(pi))+1
+  \end{itemize}
+\item Order of operations: 1) parentheses, 2) exponents and roots,
+  3) multiplication and division, 4) addition and subtraction
+  \begin{itemize}[noitemsep]
+  \item $\displaystyle \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$ should be entered
+    as (1/sqrt(2*(pi)))*e\^\,(-(x\^\,2)/2)
+  \item a/b*c is interpreted as $\frac{a}{b}c$
+  \item enter a/(b*c) for $\frac{a}{bc}$
+  \item When in doubt, use additional parentheses to remove
+    possible ambiguitites
+  \end{itemize}
+\item Natural logarithm: although in lectures and solved problems we will
+  sometimes use the notation "log" (instead of "ln"), you should use the
+  string of letters ln , followed by the argument enclosed in parentheses
+  \begin{itemize}[noitemsep]
+  \item $\ln{(2x)}$ should be entered as ln(2*x)
+  \end{itemize}
+\item Trigonometric functions: use the usual 3-letter symbols to denote
+  the standard trigonometric functions
+  \begin{itemize}[noitemsep]
+  \item $\sin{(x)}$ should be entered as sin(x)
+  \end{itemize}
+\item Greek letters: use the Latin-character name to denote each Greek letter
+  \begin{itemize}[noitemsep]
+  \item $\lambda e^{-\lambda t}$ should be entered as lambda*e\^\,(-lambda*t)
+  \item $\mu \alpha \theta$ should be entered as mu*alpha*theta
+  \end{itemize}
+\item Factorials, permutations, combinations: you will not need enter these
+  for any symbolic answers; do NOT use ! in your answers as it will not be evaluated correctly!
+\end{itemize}
+
+\begin{figure}[H]
+  \begin{center}
+    \caption{Standard Notation Summary: 1}
+    \label{fig:std-ntt-1}
+    \fbox{\includegraphics[scale=0.5,angle=90,origin=c]{imagens/standard-notation-1.png}}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \caption{Standard Notation Summary: 2}
+    \label{fig:std-ntt-2}
+    \fbox{\includegraphics[scale=0.6,angle=90,origin=c]{imagens/standard-notation-2.png}}
+  \end{center}
+\end{figure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Textbook information}
-\label{ovw0-book-}
+\label{ovw0-book}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Textbook}
+\label{ovw0-book-textbook}
+
+The class follows closely the text Introduction to Probability, 2nd edition, by
+Bertsekas and Tsitsiklis, Athena Scientific, 2008; see the publisher's website or
+Amazon.com for more information.
+
+While this textbook is recommended, the materials provided by this course are
+self-contained. Furthermore, the publisher has made available, for the purposes
+of this class, the summary tables that are included in the text. These can be found
+under the “Resources" tab, or directly by following
+\href{https://courses.edx.org/courses/course-v1:MITx+6.431x+3T2018/pdfbook/0/chapter/1/1}{this link}.
+In various places
+within the courseware, there will also be links to specific sections and pages to
+the excerpts from the textbook relevant to the material at hand. These links will
+also take you to the e-reader, jumping directly to the specific sections and pages.
+
+To adjust the zoom level in the e-reader, click the '+' and '-' buttons at the
+top-right to zoom in and out, respectively. Or, choose a specific zoom level using
+the drop-down menu. Depending on your operating system and web browser, you may
+encounter occasional artifacts or imperfect rendering of some formulas. Please try
+adjusting the zoom level to find the one that gives the best readability. We recommend
+using Firefox as it renders the text most accurately.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Ordering and other information}
+\label{ovw0-book-ordering}
+
+The class follows closely the text Introduction to Probability, 2nd Ed., by
+Bertsekas and Tsitsiklis. If interested in purchasing a copy of the textbook,
+it is available through
+\href{http://www.amazon.com/Introduction-Probability-Edition-Dimitri-Bertsekas/dp/188652923X/}{Amazon.}
+
+Textbook errata can be found \href{http://athenasc.com/prob-errata\_2ndedition.pdf}{here}.
+Ignore “Corrections to the 1st and 2nd printing." These do not apply to the currently
+available printed version.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Micromasters, Certification, and Honor Pledge}
+\label{ovw0-mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Micromasters}
+\label{ovw0-mm-mm}
+
+Video: \href{https://www.youtube.com/watch?v=Xe97K6cLQZ8}{MITs Micromasters in Statistics and Data Science}
+
+This course is part of the
+\href{https://www.edx.org/micromasters/mitx-statistics-and-data-science}{MITx
+  Micromaster Program in Statistics and Data Science}. Welcome to the program!
+
+\paragraph{About the Program} The MITx Micromasters program in Statistics and Data
+Science is comprised of four EdX courses and a virtually proctored exam that will
+provide you with the foundational knowledge essential to understanding the methods
+and tools used in data science, and hands-on training in data analysis and machine
+learning. You will dive into the fundamentals of probability and statistics, as well
+as learn, implement, and experiment with data analysis techniques and machine learning
+algorithms. This program will prepare you to become an informed and effective practitioner
+of data science who adds value to an organization and will also accelerate your path
+towards an MIT PhD or a Master's at other universities.
+
+Anyone can enroll in the Micromasters program just as in any EdX courses. It is designed
+for learners who want to acquire sophisticated and rigorous training in data science
+without leaving their day job but also without compromising quality. There is no
+application process. To excel in the entire program, make sure you learn the
+foundational material covered in this course. You will also need some knowledge of
+matrices and proficiency in Python programming.
+
+\paragraph{What You'll Learn} You'll lean about:
+
+\begin{itemize}[noitemsep]
+\item Master the foundations of data science, statistics, and machine learning
+\item Analyze big data and make data-driven predictions through probabilistic
+  modeling and statistical inference; identify and deploy appropriate modeling
+  and methodologies in order to extract meaningful information for decision making
+\item Develop and build machine learning algorithms to extract meaningful information
+  from seemingly unstructured data; learn popular unsupervised learning methods,
+  including clustering methodologies and supervised methods such as deep neural networks
+\item Master techniques in modern data analysis to leverage big datasets; use python
+  and R skillfully to analyze data
+\end{itemize}
+
+\paragraph{How to earn the Micromasters credential} To earn the MITx Micromasters
+credential in statistics and data science, you must successfully pass and receive
+a Verified Certificate in each of the 4 courses listed below and pass the final
+Capstone Exam:
+
+\begin{itemize}[noitemsep]
+\item 6.431x Probability–the Science of Uncertainty and Data
+\item 14.310Fx Data Analysis in Social Sciences
+\item 18.6501x Fundamentals of Statistics
+\item 6.86x Machine Learning with Python–From Linear Models to Deep Learning
+\item DS-CFx Captone Exam in Statistics and Data Science 
+\end{itemize}
+
+All the courses are taught by MIT faculty at a similar pace and level of
+rigor as an on-campus course at MIT.
+
+\paragraph{More information} If you are interested in the Micromasters program,
+visit \href{https://www.edx.org/micromasters/mitx-statistics-and-data-science}{https://www.edx.org/micromasters/mitx-statistics-and-data-science}.
+For more detail on this program and credit pathways, please visit the \href{https://micromasters.mit.edu/ds}{MITx
+  Micromasters Portal}, which includes a “Contact us" link at the very bottom left.
+You may also find the \href{https://micromasters.mit.edu/ds/faq/}{FAQ} helpful.
+Finally, you can start connecting with fellow
+Micromasters learners on the discussion forum! 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Certification}
+\label{ovw0-mm-certification}
+
+To earn a Verified Certificate in this course, you need to:
+
+\begin{itemize}[noitemsep]
+\item \href{https://courses.edx.org/verify_student/upgrade/course-v1:MITx+6.431x+3T2018/}{Upgrade your status}
+  to be a verified learner - The fee is \$300.
+\item \href{https://support.edx.org/hc/en-us/articles/206503858-Best-Practices-for-edX-Photo-Verification}{Verify your identity} - ID Verification.
+\item Pass the course - at least 60\% on your final grade.
+\end{itemize}
+
+You have limited time to switch to a Verified Certificate learner – you should
+get ID Verified as soon as you register as a Verified learner. See the EdX FAQ
+for more details on certificates.
+
+Note: It is your responsibility to make sure that your ID verification is valid
+during the whole course.
+
+A verified certificate indicates that you have successfully completed the course,
+but will not include a specific grade. Certificates are issued by edX under the
+name of MITx and are delivered online through your dashboard on edx.org.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{EdX Honor Code Pledge}
+\label{ovw0-mm-honor}
+
+By enrolling in an EdX course, you have already agreed with the EdX Honor Code,
+which means that you will do the following:
+
+\begin{itemize}[noitemsep]
+\item Complete all graded material (graded assignments and exams) with your
+  own work and only your own work. You will not submit the work of any other
+  person or have anyone else submit work under your name.
+\item Maintain only one user account and not let anyone else use your username
+  and/or password. Having two user accounts registered in this course will
+  constitute cheating. Not engage in any activity that would dishonestly improve
+  your results, or improve or hurt the results of others."."Not collaborate with
+  anyone other than staff on the exam questions. This means comparing answers,
+  working as teams, or sharing answers in any way.
+\item Not post answers to any problems that are used to assess learner performance.
+\item Always be polite and respectful when communicating across the platform
+  (with other learners and the staff).
+\end{itemize}
+
+We will strictly enforce this honor code pledge. Learners found violating this
+pledge will be dealt with directly. If we become aware of any suspicious activity
+we reserve the right to remove credit, not award a certificate, revoke a certificate,
+ban from this and other courses in the MITs Micromasters Program in Statistics and
+Data Science as well as notify edX for other actions. We take academic honesty very,
+very seriously at MIT. With the introduction of the Micromasters Credential, the
+importance of honesty in work has been elevated to a much higher level than before.
+We will diligently monitor this and be very proactive. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Entrance survey}
-\label{ovw0-survey-}
+\label{ovw0-survey}
+
+For us to offer the best course experience possible, we'd like to ask you
+to answer a few questions about yourself: \href{survey.pdf}{Entrance Survey}.
 
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Unit 1: Probability models and axioms (2018/09/03)}
+\label{un1}
 
 
 
