@@ -261,6 +261,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Hifenização específica quando o LaTeX/Babel não conseguirem hifenizar:
 \babelhyphenation{Git-Hub}
+\usepackage{exsol}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -628,10 +629,10 @@ average of your scores for the different components, with the following weights:
 
 \begin{itemize}[noitemsep]
 \item 20\% for the lecture exercises (divided equally among the 26 lectures)
-\item 40\% for the problem sets (divided equally among 11 problem sets)
-\item 12\% for the first midterm exam (timed)
-\item 12\% for the second midterm exam (timed)
-\item 16\% for the final exam (timed)
+\item 20\% for the problem sets (divided equally among 11 problem sets)
+\item 18\% for the first midterm exam (timed)
+\item 18\% for the second midterm exam (timed)
+\item 24\% for the final exam (timed)
 \end{itemize}
 
 To earn a verified certificate for this course, you will need to obtain an
@@ -643,9 +644,9 @@ Set 2 may have 35 points. However, each one receives the same weight for the
 purposes of calculating your overall score.
 
 As an illustrative example, if you receive 20 points out of 30 on Problem Set 1,
-this will contribute [Math Processing Error] to your overall score. Similarly, if
+this will contribute $\frac{20}{30} \times \frac{20\%}{11} = 1.21\%$ to your overall score. Similarly, if
 you receive 30 points out of 35 on Problem Set 2, this will contribute
-[Math Processing Error] to your overall score.
+$\frac{30}{35} \times \frac{20\%}{11} = 1.56\%$ to your overall score.
 
 Under the “Progress" tab at the top, you can see your score broken down for each
 assignment, as well as a summary plot.
@@ -966,7 +967,8 @@ so please also check your text input carefully.
 \label{ovw0-book-textbook}
 
 The class follows closely the text Introduction to Probability, 2nd edition, by
-Bertsekas and Tsitsiklis, Athena Scientific, 2008; see the publisher's website or
+Bertsekas and Tsitsiklis, Athena Scientific, 2008; see the
+publisher's website or
 Amazon.com for more information.
 
 While this textbook is recommended, the materials provided by this course are
@@ -991,7 +993,8 @@ using Firefox as it renders the text most accurately.
 \label{ovw0-book-ordering}
 
 The class follows closely the text Introduction to Probability, 2nd Ed., by
-Bertsekas and Tsitsiklis. If interested in purchasing a copy of the textbook,
+Bertsekas and Tsitsiklis. If interested in purchasing a copy of the
+\href{http://athenasc.com/probbook.html}{textbook},
 it is available through
 \href{http://www.amazon.com/Introduction-Probability-Edition-Dimitri-Bertsekas/dp/188652923X/}{Amazon.}
 
@@ -1138,11 +1141,698 @@ to answer a few questions about yourself: \href{survey.pdf}{Entrance Survey}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Unit 1: Probability models and axioms (2018/09/03)}
 \label{un1}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Lecture 1: probability models and axioms}
+\label{un1-lec1}
 
+Atention: Exercises due Sep 11, 2018 20:59:59 -03.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Motivation}
+\label{un1-lec1-motiv}
+
+Video: \href{https://d2f1egay8yehza.cloudfront.net/MIT6041XT114-V036600\_DTH.mp4}{Motivation}
+
+Let's face it.
+Life is uncertain.
+But one thing is certain.
+We need a way to make predictions and make decisions
+under uncertainty.
+Probabilistic models can help you answer questions, such as:
+
+\begin{itemize}[noitemsep]
+\item What are the odds that there will
+be a long line at the supermarket checkout counter?
+\item How likely is it that my GPS device is off
+by more than 10 meters?
+\item What are the odds that I will have a car accident next year?
+\item How likely is it that the air traffic control radar will
+miss the approaching plane?
+\item Should I invest in the stock market now or wait?
+\item Can I use a probabilistic model of social networking data
+to create a marketing campaign?
+\item How do we use a statistical model
+to decide if a medical treatment is effective?
+\item How do I model the huge amounts of data that are now
+becoming available in so many different fields, big data,
+as they call it, and extract useful information?
+\end{itemize}
+
+I am \emph{John Tsitsiklis}.
+And I'm \emph{Patrick Jaillet}.
+Our mission in this class is to give you the tools
+to model and analyze uncertain situations no matter what
+your discipline.
+
+To do that, we will use the language and precision
+of mathematics, but we will also build your intuition.
+This is an ambitious class.
+The online version is at \emph{the same level as the one offered
+  to MIT students}.
+
+It covers a lot of material.
+Beyond the basics, you will learn about random processes
+and about extracting information from data.
+In the end, you will be able to make much better sense
+of the uncertainty around you.
+The rewards are certain to come.
+
+Let's face it.
+Life is uncertain.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Overview and slides}
+\label{un1-lec1-overview}
+
+This lecture sequence introduces the basic structure of probability models,
+including the sample space and the axioms that any probabilistic model should obey,
+together with some consequences of the axioms and some simple examples.
+
+Video: \href{https://www.youtube.com/watch?v=qgwfz1FCPCc}{Lecture 01: Probability
+  Models and Acioms} (%
+\href{Unit-1/01\_lecture\_1\_probability\_models\_and\_axioms/l01\_overview\_transcripts.pdf}{transcripts},
+\href{Unit-1/01\_lecture\_1\_probability\_models\_and\_axioms/l01\_overview\_slides.pdf}{slides},
+\href{Unit-1/01\_lecture\_1\_probability\_models\_and\_axioms/l01\_overview\_annotated\_slides.pdf}{annotated slides}%
+)\footnote{The same material, in live lecture hall format, can be found \href{http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041-probabilistic-systems-analysis-and-applied-probability-fall-2010/video-lectures/lecture-1-probability-models-and-axioms/}{here} and \href{http://www.youtube.com/watch?v=j9WZyLZCBzs}{here}.} \footnote{You can also take this occasion
+  to review some concepts related to sets (especially De Morgan's laws), sequences,
+  and infinite series, by watching the “Mathematical background" sequence of clips.} \footnote{More
+  information is given in the text:
+  \begin{itemize}[noitemsep]
+  \item Sets: Section 1.1
+  \item Probabilistic models: Section 1.2
+  \end{itemize}
+  }
+
+Welcome to the first lecture of this class.
+You may be used to having a first lecture devoted to
+general comments and motivating examples.
+This one will be different.
+
+We will dive into the heart of the subject right away.
+In fact, today we will accomplish a lot.
+By the end of this lecture, you will \emph{know about all of the
+elements of a probabilistic model}.
+
+\textbf{A probabilistic model is a quantitative description of a
+situation, a phenomenon, or an experiment whose outcome is uncertain}.
+Putting together such a model involves two key steps:
+
+\begin{itemize}
+\item First, we need to describe the possible outcomes of the
+  experiment. This is done by specifying a so-called \emph{sample space}.
+\item Second, we specify a \emph{probability law}, which assigns
+  probabilities to outcomes or to collections of outcomes.
+\end{itemize}
+
+The probability law tells us, for example, whether one
+outcome is much more likely than some other outcome.
+
+Probabilities have to satisfy certain basic properties in
+order to be meaningful.
+These are the \emph{axioms of probability theory}.
+For example probabilities cannot be negative.
+Interestingly, there will be very few axioms, but they are
+powerful, and we will see that they have lots of
+consequences.
+We will see that they imply many other properties that
+were not part of the axioms.
+
+We will then go through a couple of very simple examples
+involving models with either \emph{discrete}
+or \emph{continuous} outcomes.
+As you will be seeing many times in this class, discrete
+models are conceptually much easier.
+Continuous models involve some more sophisticated concepts,
+and we will point out some of the subtle issues that arise.
+And finally, we will talk a little bit about the big
+picture, about the role of probability theory, and its
+relation with the real world.
+
+\begin{figure}[H]
+  \begin{center}
+    \caption{Objectives of Lecture 1}
+    \label{fig:obj-lec-1}
+    \fbox{\includegraphics[scale=0.5]{imagens/unit-1/l01-001.png}}
+  \end{center}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Sample space}
+\label{un1-lec1-sample-space}
+
+Video: \href{https://www.youtube.com/watch?v=qFBSUg59bWg}{Sample space}
+(\href{Unit-1/01\_lecture\_1\_probability\_models\_and\_axioms/l01\_1\_transcripts.pdf}{transcript})
+
+Putting together a probabilistic model ---
+that is, a model of a random phenomenon or a random
+experiment --- involves two steps.
+
+\begin{itemize}
+\item First step, we describe the \emph{possible outcomes} of the
+  phenomenon or experiment of interest.
+\item Second step, we describe our beliefs about the \emph{likelihood
+  of the different possible outcomes} by specifying a \emph{probability law}.
+\end{itemize}
+Here, we start by just talking about the first step, namely,
+the description of the possible outcomes of the
+experiment.
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/l01-002.png}}
+  \end{center}
+\end{figure}
+
+So we carry out an experiment.
+For example, we flip a coin.
+Or maybe we flip five coins simultaneously.
+Or maybe we roll a die.
+
+Whatever that experiment is, it has a number of possible
+outcomes, and we start by \emph{making a list of
+the possible outcomes} ---
+or, a better word, instead of the word "list", is to use the
+word "set", which has a more formal mathematical meaning.
+
+So we create a set that we usually
+denote by capital omega, $\Omega$.
+That set is called the \emph{sample space} and is the set of \textbf{all
+possible outcomes of our experiment}:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/l01-003.png}}
+  \end{center}
+\end{figure}
+
+The elements of that set should have certain
+properties. Namely, the elements should be \textbf{mutually exclusive} and
+\textbf{collectively exhaustive}.
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/l01-004.png}}
+  \end{center}
+\end{figure}
+
+What does that mean?
+Mutually exclusive means that, if at the end of the
+experiment, I tell you that this outcome happened, then it
+should not be possible that this outcome also happened.
+At the end of the experiment, there can \emph{only be one of the
+outcomes that has happened}.
+
+Being collectively exhaustive means something else --- that,
+together, all of these \emph{elements of the set exhaust
+all the possibilities}.
+So no matter what, at the end, you will be able to point to
+one of the outcomes and say, that's the one that occurred.
+
+To summarize:
+this set should be such that, at the end of the experiment,
+you should be always able to \emph{point to one, and exactly one,
+of the possible outcomes} and say that this is the outcome
+that occurred.
+
+Physically \emph{different outcomes should be distinguished in the
+sample space} and correspond to distinct points.
+But when we say physically different
+outcomes, what do we mean?
+We really mean \emph{different in all relevant aspects} but
+perhaps not different in irrelevant aspects.
+Let's make more precise what I mean by that by looking at a
+very simple, and maybe silly, example,
+which is the following.
+
+Suppose that you flip a coin and you see whether it
+resulted in heads or tails.
+So you have a perfectly legitimate sample space for
+this experiment which consists of just two points ---
+heads and tails:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/l01-005.png}}
+  \end{center}
+\end{figure}
+
+Together these two outcomes \emph{exhaust all possibilities}.
+And the two outcomes are \emph{mutually exclusive}.
+So this is a very legitimate sample space for this
+experiment.
+
+Now suppose that while you were flipping the coin, you
+also looked outside the window to check the weather.
+And then you could say that my sample space is really, heads,
+and it's raining.
+Another possible outcome is heads and no rain.
+Another possible outcome is tails, and it's raining, and,
+finally, another possible outcome is tails and no rain.
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/l01-006.png}}
+  \end{center}
+\end{figure}
+
+This set, consisting of four elements, is also a perfectly
+legitimate sample space for the experiment
+of flipping a coin.
+The elements of this sample space are mutually exclusive
+and collectively exhaustive.
+Exactly one of these outcomes is going to be true, or will
+have materialized, at the end of the experiment.
+
+So which sample space is the correct one?
+This sample space, the second one, involves
+some \emph{irrelevant details}.
+So the preferred sample space for describing the flipping of
+a coin, the preferred sample space is the simpler one, the
+first one, which is sort of at the \emph{right granularity}, \textbf{given
+  what we're interested in}.
+
+But ultimately, the question of which one is \emph{the right
+sample space depends on what kind of
+questions you want to answer}.
+For example, if you have a theory that the weather
+affects the behavior of coins, then, in order to play with
+that theory, or maybe check it out, and so on, then, in such
+a case, you might want to work with the second sample space.
+
+This is a common feature in all of science.
+Whenever you put together a model, you need to decide how
+detailed you want your model to be.
+And \emph{the right level of detail is the one that captures those
+  aspects that are relevant and of interest to you}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Exercise: Sample Space}
+\label{un1-lec1-exec-sample-space}
+
+\begin{exercise}
+  \textbf{Sample space}\\
+  For the experiment of flipping a coin, and for each one of the following choices,
+  determine whether we have a legitimate sample space:
+
+  $\Omega = \{\text{Heads and it is raining, Heads and it is not raining, Tails}\}$
+  \begin{itemize}[noitemsep]
+  \item[$\bigcirc$] Yes
+  \item[$\bigcirc$] No
+  \end{itemize}
+
+  $\Omega = \{\text{Heads and it is raining, Tails and it is not raining, Tails}\}$
+  \begin{itemize}[noitemsep]
+  \item[$\bigcirc$] Yes
+  \item[$\bigcirc$] No
+  \end{itemize}
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Sample space examples}
+\label{un1-lec1-sample-space-exs}
+
+Video: \href{https://www.youtube.com/watch?v=iUF5n3Ou7Sc}{Sample space examples}
+(\href{Unit-1/01\_lecture\_1\_probability\_models\_and\_axioms/l01\_2\_transcripts.pdf}{transcripts})
+
+Let us now look at some examples of sample spaces.
+\emph{Sample spaces are sets}. And a set can be:
+
+\begin{itemize}
+\item Discrete or continuous
+\item Finite or infinite
+\end{itemize}
+
+Let us start with a simpler case in which we have a sample
+space that is discrete and finite.
+The particular experiment we will be
+looking at is the following.
+We take a very special die, a tetrahedral die.
+So it's a die that has four faces numbered from 1 up 4.
+We roll it once.
+And then we roll it twice [again].
+
+Were not dealing here with two probabilistic experiments.
+We're dealing with a single probabilistic experiment that
+involves two rolls of the die within that experiment.
+What is the sample space of that experiment?
+
+Well, one possible
+representation is the following:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/l01-007.png}}
+  \end{center}
+\end{figure}
+
+We take note of the result of the first roll.
+And then we take note of the result of the second roll.
+And this gives us a pair of numbers.
+Each one of the possible pairs of numbers corresponds to one
+of the little squares in this diagram.
+
+For example, if the first roll is 1 and the second is also 1,
+then this particular outcome has occurred:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/l01-008.png}}
+  \end{center}
+\end{figure}
+
+If the first roll is it 2 and the second is a 3, then this
+particular outcome occurs:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/l01-009.png}}
+  \end{center}
+\end{figure}
+
+If the first roll is a 3 and then the next one is a 2, then
+this particular outcome occurs:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/l01-010.png}}
+  \end{center}
+\end{figure}
+
+Notice that these two outcomes are pretty closely related.
+In both cases, we observe a 2 and we observe a 3.
+But we distinguish those two outcomes because in those two
+outcomes, the 2 and the 3 happen in different order.
+And the order in which they appear may be a detail which
+is of interest to us.
+And so we make this distinction
+in the sample space.
+So we keep the (3, 2) and the (2, 3) as separate outcomes.
+
+Now this is a case of a model in which \emph{the probabilistic
+experiment can be described in phases or stages}.
+We could think about rolling the die once and then going
+ahead with the second roll.
+So we have two stages.
+
+A very useful way of describing the sample space of
+experiments ---
+whenever we have an experiment with several stages, either
+real stages or imagined stages --- it is by providing
+a \emph{sequential description in terms of a tree}.
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/l01-011.png}}
+  \end{center}
+\end{figure}
+
+So a diagram of this kind, we call it a tree.
+You can think of this as the \emph{root} of the tree
+from which you start.
+And the endpoints of the tree, we usually
+call them the \emph{leaves}.
+
+So the experiment starts.
+We carry out the first phase, which in this case is the
+first roll.
+And we see what happens.
+So maybe we get a 2 in the first roll.
+And then we take note of what happened in the second roll.
+And maybe the result was a 3.
+So we follow this branch here.
+And we end up at this particular leaf, which is the
+leaf associated with the outcome 2, 3:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/l01-012.png}}
+  \end{center}
+\end{figure}
+
+Notice that in this tree we once more have a distinction.
+The outcome 2 followed by a 3 is different from the outcome
+3 followed by a 2, which would correspond to this particular
+place in the diagram:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/l01-013.png}}
+  \end{center}
+\end{figure}
+
+In both cases, we have 16 possible outcomes.
+4 times 4 makes 16.
+And similarly, if you count here, the number of leaves is
+equal to 16.
+
+The previous example involves a sample space that was
+discrete and finite.
+There were only 16 possible outcomes.
+But sample spaces can also be infinite.
+And they could also be continuous sets.
+Here's an example of an experiment that involves a
+continuous sample space.
+
+So we have a rectangular target
+which is the unit square:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/l01-014.png}}
+  \end{center}
+\end{figure}
+
+And you throw a dart on that target.
+And suppose that you are so skilled that no matter what,
+when you throw the dart, it always
+falls inside the target:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/l01-015.png}}
+  \end{center}
+\end{figure}
+
+Once the dart hits the target, you record the coordinates x
+and y of the particular point that resulted
+from your dart throw.
+And we record x and y with \emph{infinite precision}.
+So x and y are real numbers.
+So in this experiment, the sample space is just the set
+of x, y pairs that lie between 0 and 1 (inclusive):
+$\Omega = \left\{(x, y)\quad |\quad 0 \le x, y \le 1\right\}$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Exercise: Tree representations}
+\label{un1-lec1-exec-tree-rep}
+
+\begin{exercise}
+  \textbf{Tree representations}\\
+  Paul checks the weather forecast. If the forecast is good, Paul will go out for
+  a walk. If the forecast is bad, then Paul will either stay home or go out. If
+  he goes out, he might either remember or forget his umbrella. In the tree diagram
+  below, identify the leaf that corresponds to the event that the forecast is bad
+  and Paul stays home.
+
+  \begin{figure}[H]
+    \begin{center}
+      %\caption{}
+      %\label{fig:}
+      \fbox{\includegraphics[scale=0.6]{imagens/unit-1/l01-016.png}}
+    \end{center}
+  \end{figure}
+
+  \begin{itemize}[noitemsep]
+  \item[$\bigcirc$] 1
+  \item[$\bigcirc$] 2
+  \item[$\bigcirc$] 3
+  \item[$\bigcirc$] 4
+  \end{itemize}
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Probability axioms}
+\label{un1-lec1-prob-axioms}
+
+Video: \href{https://www.youtube.com/watch?v=2J5Vr-kB\_c4}{Probability axioms}
+(\href{Unit-1/01\_lecture\_1\_probability\_models\_and\_axioms/l01\_3\_transcripts.pdf}{transcripts})
+
+We have so far discussed the first step involved in the
+construction of a probabilistic model.
+Namely, the construction of a sample space, which is a
+description of the possible outcomes of a probabilistic
+experiment.
+We now come to the second and much more interesting part.
+We need to specify which outcomes are more likely to
+occur and which ones are less likely to occur and so on.
+And we will do that by assigning probabilities to the
+different outcomes.
+However, as we try to do this assignment, we run into some
+kind of difficulty, which is the following.
+Remember the previous experiment involving a
+continuous sample space, which was the unit square and in
+which we throw a dart at random and record the point
+that occurred.
+In this experiment, what do you think is the probability
+of a particular point?
+Let's say what is the probability that my dart hits
+exactly the center of this square.
+Well, this probability would be essentially 0.
+Hitting the center exactly with infinite
+precision should be 0.
+And so it's natural that in such a continuous model any
+individual point should have a 0 probability.
+For this reason instead of assigning probabilities to
+individual points, we will instead assign probabilities
+to whole sets, that is, to subsets of the sample space.
+So here we have our sample space, which is some
+abstract set omega.
+Here is a subset of the sample space.
+Call it capital A. We're going to assign a probability to
+that subset A, which we're going to denote with this
+notation, which we read as the probability of set A. So
+probabilities will be assigned to subsets.
+And these will not cause us difficulties in the continuous
+case because even though individual points would have 0
+probability, if you ask me what are the odds that my dart
+falls in the upper half, let's say, of this diagram, then
+that should be a reasonable positive number.
+So even though individual outcomes may have 0
+probabilities, sets of outcomes in general would be
+expected to have positive probabilities.
+So coming back, we're going to assign probabilities to the
+various subsets of the sample space.
+And here comes a piece of terminology, that a subset of
+the sample space is called an event.
+Why is it called an event?
+Because once we carry out the experiment and we observe the
+outcome of the experiment, either this outcome is inside
+the set A and in that case we say that event A has occurred,
+or the outcome falls outside the set A in which case we say
+that event A did not occur.
+Now we want to move on and describe certain rules.
+The rules of the game in probabilistic models, which
+are basically the rules that these
+probabilities should satisfy.
+They shouldn't be completely arbitrary.
+First, by convention, probabilities are always given
+in the range between 0 and 1.
+Intuitively, 0 probability means that we believe that
+something practically cannot happen.
+And probability of 1 means that we're practically certain
+that an event of interest is going to happen.
+So we want to specify rules of these kind for probabilities.
+These rules that any probabilistic model should
+satisfy are called the axioms of probability theory.
+And our first axiom is a nonnegativity axiom.
+Namely, probabilities will always be
+non-negative numbers.
+It's a reasonable rule.
+The second rule is that if the subset that we're looking at
+is actually not a subset but is the entire sample space
+omega, the probability of it should always be equal to 1.
+What does that mean?
+We know that the outcome is going to be an element of the
+sample space.
+This is the definition of the sample space.
+So we have absolute certainty that our outcome is going to
+be in omega.
+Or in different language we have absolute certainty that
+event omega is going to occur.
+And we capture this certainty by saying that the probability
+of event omega is equal to 1.
+These two axioms are pretty simple and very intuitive.
+The more interesting axiom is the next one that says
+something a little more complicated.
+Before we discuss that particular axiom, a quick
+reminder about set theoretic notation.
+If we have two sets, let's say a set A, and another set,
+another set B, we use this particular notation, which we
+read as "A intersection B" to refer to the collection of
+elements that belong to both A and B. So in this picture, the
+intersection of A and B is this shaded set.
+We use this notation, which we read as "A union B", to refer
+to the set of elements that belong to A
+or to B or to both.
+So in terms of this picture, the union of the two sets
+would be this blue set.
+After this reminder about set theoretic notation, now let us
+look at the form of the third axiom.
+What does it say?
+If we have two sets, two events, two subsets of the
+sample space, which are disjoint.
+So here's our sample space.
+And here are the two sets that are disjoint.
+In mathematical terms, two sets being disjoint means that
+their intersection has no elements.
+So their intersection is the empty set.
+And we use this symbol here to denote the empty set.
+So if the intersection of two sets is empty, then the
+probability that the outcome of the experiments falls in
+the union of A and B, that is, the probability that the
+outcome is here or there, is equal to the sum of the
+probabilities of these two sets.
+This is called the additivity axiom.
+So it says that we can add probabilities of different
+sets when those two sets are disjoint.
+In some sense we can think of probability as being one pound
+of some substance which is spread over our sample space
+and the probability of A is how much of that substance is
+sitting on top of a set A. So what this axiom is saying is
+that the total amount of that substance sitting on top of A
+and B is how much is sitting on top of A plus how much is
+sitting on top of B. And that is the case whenever the sets
+A and B are disjoint from each other.
+The additivity axiom needs to be refined a bit.
+We will talk about that a little later.
+Other than this refinement, these three axioms are the
+only requirements in order to have a
+legitimate probability model.
+At this point you may ask, shouldn't there be more
+requirements?
+Shouldn't we, for example, say that probabilities cannot be
+greater than 1?
+Yes and no.
+We do not want probabilities to be larger than 1, but we do
+not need to say it.
+As we will see in the next segment, such a requirement
+follows from what we have already said.
+And the same is true for several other natural
+properties of probabilities.
 
 
 

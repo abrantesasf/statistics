@@ -5,6 +5,11 @@
 ## Ignorar backup do emacs:
 *~
 
+## Ignorar arquivos do package exsol:
+*.exc.tex
+*.fc.tex
+*.sol.tex
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
