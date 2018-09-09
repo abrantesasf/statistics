@@ -3986,6 +3986,3085 @@ into fundamentally different probabilistic models ---
 models that involve discrete experiments and outcomes
 versus models that involve continuous outcomes.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Sets}
+\label{un1-math-back-sets}
+
+Video: \href{https://www.youtube.com/watch?v=ZAZNrW992Fc}{Sets}
+(\href{Unit-1/02\_mathematical\_background/mb\_2\_transcripts.pdf}{transcripts})
+
+In this segment, we will talk about sets.
+I'm pretty sure that most of what I will say is material
+that you have seen before.
+Nevertheless, it is useful to do a review of some of the
+concepts, the definitions, and also of the notation that we
+will be using.
+
+So what is a set?
+A \emph{set is just a collection of distinct elements}.
+So we have some elements, and we put them together.
+And this collection, we call it the set S:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-002.png}}
+  \end{center}
+\end{figure}
+
+More formally, how do we specify a set?
+We could specify a set by \emph{listing its elements, and
+putting them inside braces}.
+So this is a set that consists of four elements, the letters,
+a, b, c, d:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-003.png}}
+  \end{center}
+\end{figure}
+
+Another set could be the set of all real numbers.
+Notice a distinction here ---
+the first set is a \emph{finite set}.
+It has a finite number of elements, whereas the second
+set is \emph{infinite set}.
+And in general, sets are of these two kinds.
+Either they're finite, or their infinite:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-004.png}}
+  \end{center}
+\end{figure}
+
+A piece of notation now.
+We use this notation to indicate that a certain object
+x is an element of a set S: $x \in S$ (we read that as x belongs to S).
+If x is not an element of S, then we use this notation to
+indicate it, $x \notin S$ (we read it as x does not belong to S).
+
+Now, one way of specifying sets is as follows.
+We start with a bigger se --- for example,
+the set of real numbers ---
+and we consider all of those x's that belong to that big
+set that have a certain property.
+For example, that the cosine of this number is, let's say,
+bigger than 1/2:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-005.png}}
+  \end{center}
+\end{figure}
+
+This is a way of specifying a set.
+We \emph{start with a big set}, but we then \emph{restrict to those
+  elements of that set that satisfy a particular property}.
+
+One set of particular interest is the following.
+Sometimes in some context, we want to fix a collection of
+all possible objects that we might ever want to consider,
+and that collection will be a set.
+We denote it usually by $\Omega$, and we call it
+the universal set:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-006.png}}
+  \end{center}
+\end{figure}
+
+So having fixed a universal set, we will only consider
+smaller sets that lie inside that big universal set:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-007.png}}
+  \end{center}
+\end{figure}
+
+And once we have a universal set, we can talk about the
+collection of all objects, or elements, that belong to our
+universal set, but do not belong to the set S. So that
+would be everything outside the set S:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-008.png}}
+  \end{center}
+\end{figure}
+
+Everything outside the set S, we denote it this way, $S^c$, and we
+call it the \emph{complement of the set S}. And it is defined
+formally as follows ---
+an element belongs to $S^c$ if $x \in \Omega$ 
+and also $x \notin S$:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-009.png}}
+  \end{center}
+\end{figure}
+
+Notice that if we take the complement of the complement ---
+that is, anything that does not belong to the green set ---
+we get back the red set.
+So what this is saying is that \emph{the complement of the
+complement of a set is the set itself}: $(S^c)^c = S$.
+
+Another set of particular interest is the
+so-called \emph{empty set}.
+The empty set is a set that contains no elements.
+In particular, if we take the complement of
+the universal set ---
+well, since the universal set contains everything, there is
+nothing in its complement, so its complement is going to be
+the empty set, $\Omega^c = \varnothing$:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-010.png}}
+  \end{center}
+\end{figure}
+
+Finally, one more piece of notation.
+Suppose that we have two sets, and one set is
+bigger than the other.
+So S is the small set here, and T is the bigger set:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-011.png}}
+  \end{center}
+\end{figure}
+
+We denote this relation by writing this expression, $S \subset T$, which
+we read as follows: S is a subset of the set T.
+And what that means is that if $x \in S$, then
+such an $x \in T$:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-012.png}}
+  \end{center}
+\end{figure}
+
+Note that when $S \subset T$, there is also the possibility that $S=T$.
+One word of caution here ---
+the notation that we're using here is the same as what in
+some textbooks is written this way: $S \subseteq T$,
+that is, S is a subset of T, but can also be equal to T. We
+do not use this notation, but that's how we understand it.
+That is, we allow for the possibility that the subset is
+equal to the larger set.
+
+Now when we have two sets, we can talk about their \emph{union} and
+their \emph{intersection}.
+Let's say that this is set S, and this is set T:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-013.png}}
+  \end{center}
+\end{figure}
+
+The union
+of the two sets consists of all elements that belong to
+one set or the other, or in both.
+The union is denoted this way, $S \cup T$, and the formal definition is
+that some element belongs to the union if and only if this
+element belongs to one of the sets, or it belongs to the
+other one of the sets, $x \in (S \cup T) \iff (x \in S) \vee (x \in T)$:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-014.png}}
+  \end{center}
+\end{figure}
+
+We can also form the intersection of two sets,
+which we denote this way, $S \cap T$, and which stands for the
+collection of elements that belong to both of the sets.
+So formally, an element belongs to the intersection of
+two sets if and only if that element
+belongs to both of them.
+So x must be an element of S, and it must also be an element
+of T, $x \in (S \cap T) \iff (x \in S) \wedge (x \in T)$:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-015.png}}
+  \end{center}
+\end{figure}
+
+By the way, we can also define unions and intersections of
+more than two sets, even of infinitely many sets.
+So suppose that we have an \emph{infinite collection of sets}.
+Let's denote them by $S_n$.
+So n ranges over, let's say, all of the positive integers.
+So pictorially, you might think of having one set,
+another set, a third set, a fourth set, and so on, and we
+have an infinite collection of such sets:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-016.png}}
+  \end{center}
+\end{figure}
+
+Given this infinite collection, we can still
+define their union to be the \emph{set of all elements that
+  belong to one of those sets $S_n$} that we started with:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-017.png}}
+  \end{center}
+\end{figure}
+
+That is, an element is going to belong to that union if and
+only if this element belongs to some of the sets that we
+started with.
+
+We can also define the intersection of an infinite
+collection of sets.
+We say that an element x belongs to the intersection of
+all these sets if and only if x belongs to Sn for all n.
+So if x belongs to each one of those Sn's, then we say that x
+belongs to their intersection:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-018.png}}
+  \end{center}
+\end{figure}
+
+Set operations satisfy certain basic properties:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-019.png}}
+  \end{center}
+\end{figure}
+
+One of these we already discussed: $(S^c)^c = S$.
+This property, for example, is pretty clear, $S \cup T = T \cup S$,
+The union of a set with another set is the same as the
+union if you consider the two sets in different orders.
+
+If you take the union of three sets, you can do it by
+forming, first, the union of these two sets, and then the
+union with this one; or, do it in any alternative order,
+$S \cup (T \cup U) = (S \cup T) \cup U$.
+Both expressions are equal.
+Because of this, we do not really need the parentheses,
+and we often write just this expression here, $S \cup T \cup U$, which is the
+same as this one.
+
+And the same would be true for intersections.
+That is, the intersection of three sets is the same no
+matter how you put parentheses around the different sets:
+$S \cap (T \cap U) = (S \cap T) \cap U = S \cap T \cap U$.
+
+Now if you take a union of a set with a universal set, you
+cannot get anything bigger than the universal set, so you
+just get the universal set: $S \cup \Omega = \Omega$.
+
+On the other hand, if you take the intersection of a set with
+the universal set, what is left is just the set itself: $S \cap \Omega = S$.
+
+Perhaps the more complicated properties out of this list is
+this one, $S \cap (T \cup U) = (S \cap T) \cup (S \cap U)$,
+and this one, $S \cup (T \cap U) = (S \cup T) \cap (S \cup U)$,
+which are sort of a distributive
+property of intersections and unions.
+And I will let you convince yourselves
+that these are true.
+
+The way that you verify them is by proceeding logically.
+If $x \cap (T \cup U)$, then x must be an element of
+S, and it must also be an element of either T or U.
+Therefore, it's going to belong either to this set ---
+it belongs to S, and it also belongs to T --- or it's going
+to be an element of that set --- it belongs to S, and it
+belongs to U.
+So this argument shows that this set here is a
+subset of that set.
+Anything that belongs here belongs there.
+Then you need to reverse the argument to convince yourself
+that anything that belongs here belongs also to the first
+set, and therefore, the two sets are equal.
+
+Here, I'm using the following fact --- that if S is a subset
+of T, and T is a subset of S, this implies that the
+two sets are equal.
+And then you can use a similar argument to convince
+yourselves about this equality, as well.
+
+So this is it about basic properties of sets.
+We will be using some of these properties all of the time
+without making any special comment about them.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{De Morgan's laws}
+\label{un1-math-morgan-laws}
+
+Video: \href{https://www.youtube.com/watch?v=pklIkeuveOE}{De Morgan's laws}
+(\href{Unit-1/02\_mathematical\_background/mb\_3\_transcripts.pdf}{transcripts})
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-020.png}}
+  \end{center}
+\end{figure}
+
+We will now discuss De Morgan's laws that are some
+very useful \emph{relations between sets and their complements}.
+One of the De Morgan's laws takes this form.
+If we take the intersection of two sets and then take the
+complement of this intersection, what we obtain
+is the union of the complements of the two sets:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-021.png}}
+  \end{center}
+\end{figure}
+
+Pictorially, here is the situation.
+We have our universal set.
+Inside that set, we have a set, S, which is this one.
+And we have another set, T, which is this one:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-022.png}}
+  \end{center}
+\end{figure}
+
+Let us look at this side.
+The complement of S is this part of the diagram:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-023.png}}
+  \end{center}
+\end{figure}
+
+The complement of T is this part of the diagram:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-024.png}}
+  \end{center}
+\end{figure}
+
+What is left?
+What is left is just this region here, which is the
+intersection of S with T:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-025.png}}
+  \end{center}
+\end{figure}
+
+So anything that does not belong
+here belongs to the intersection.
+This means that the complement of the intersection is
+everything out there, which is the set.
+
+If you're not convinced by this pictorial proof, let us
+go through an argument that is a little more formal.
+What does it take for an element to belong
+to the first set?
+In order to belong to that set, x belongs to the
+complement of S intersection T. This is the same as saying
+that x does not belong to the intersection [of]
+S with T.
+What does that mean?
+Since it is not in the intersection, this is the same
+as saying that x does not belong to S or x does not
+belong to T. But this is the same as saying that x belongs
+to the complement of S or x belongs to the complement of
+T. And this is equivalent to saying that x belongs to the
+union of the complement of S with the complement of T:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-026.png}}
+  \end{center}
+\end{figure}
+
+So this establishes this first De Morgan's law.
+There's another De Morgan's law, which is obtained from
+this one by a syntactic substitution.
+We're going to play the following trick.
+Wherever we see an S, we're going to replace it by S
+complement.
+And wherever we see an S complement, we will replace it
+with an S.
+And similarly, whenever we see a T, we'll replace it by T
+complement.
+And when we see a T complement, we will replace it
+by T:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-027.png}}
+  \end{center}
+\end{figure}
+
+So doing this syntactic substitution, what we obtain
+is S complement intersection with T complement ---
+everything gets complemented ---
+is the same as S union T:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-028.png}}
+  \end{center}
+\end{figure}
+
+Now, let us take complements of both sides.
+The complement of a complement is the set itself.
+So we obtain this.
+And now, we take the complement of the other side,
+which is this one.
+And this is the second De Morgan's law.
+It tells us that the complement of a union is the
+same as the intersection of the complements:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-029.png}}
+  \end{center}
+\end{figure}
+
+We derived it from the first De Morgan's law by a syntactic
+substitution.
+If you're not convinced, it would be useful for you to go
+through an argument of this kind to show that something is
+an element of this set if and only if it is an element of
+that set as well.
+
+Finally, it turns out that \emph{De Morgan's laws are valid when
+we take unions or intersections of
+more than two sets}.
+There is a more general form.
+And the general form is as follows,
+an analogy with this one:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-030.png}}
+  \end{center}
+\end{figure}
+
+If we have a collection of sets, $S_n$, perhaps an infinite
+collection, we take the intersection of those sets and
+then the complement, what that is is the union of the
+complements.
+
+So this is analygous to this law.
+And this law extends to this one: if we have the union of
+certain sets and we take the complement of the union, what
+we obtain is the intersection of the complements.
+
+We will have many occasions to use De Morgan's laws.
+They're actually very useful.
+They allow us, in general, to go back and forth between
+unions and intersections.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Sequences and their limits}
+\label{un1-math-sequences}
+
+Video: \href{https://www.youtube.com/watch?v=60ug2YVjdhU}{Sequences and their limits}
+(\href{Unit-1/02\_mathematical\_background/mb\_4\_transcripts.pdf}{transcripts})
+
+In this segment, we will discuss what a sequence is and
+what it means for a sequence to converge.
+So a \emph{sequence is some collection of elements
+that are coming out of some set, and that collection of
+elements is indexed by the natural numbers}.
+
+We often use the notation, and we say that we have a sequence
+$a_i$, or sometimes we use the notation that we have a
+sequence of this kind to emphasize the fact that it's a
+sequence and \emph{not just a single number}:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-031.png}}
+  \end{center}
+\end{figure}
+
+And what we mean by this is that we have $i$, an index that
+runs over the natural numbers, which is the set of positive
+integers, and each $a_i$ is an element of some set:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-032.png}}
+  \end{center}
+\end{figure}
+
+In many cases, the set is going to be just the real
+line, in which case we're dealing with a sequence of
+real numbers, $\mathbb{R}$.
+
+But it is also possible that the set over which our
+sequence takes values is Euclidean space n-dimensional
+space, $\mathbb{R}^n$, in which case we're dealing with
+a sequence of vectors.
+But it also could be any other kind of set.
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-033.png}}
+  \end{center}
+\end{figure}
+
+Now, the definition that I gave you may
+still be a little vague.
+You may wonder how a mathematician would define
+formally a sequence.
+Formally, what a sequence is, is just a \emph{function that, to
+  any natural number, associates an element of S}:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-034.png}}
+  \end{center}
+\end{figure}
+
+In
+particular, if we evaluate the $f(i)$,
+this gives us the i-th element of the sequence:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-035.png}}
+  \end{center}
+\end{figure}
+
+So that's what a sequence is.
+Now, about sequences, we typically care \emph{whether a
+sequence converges to some number a}, and we often use
+this notation:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-036.png}}
+  \end{center}
+\end{figure}
+
+But to make it more precise, you also add
+this notation here.
+And we read this as saying that as $i$ converges to
+infinity, the sequence ai converges to a
+certain number $a$:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-037.png}}
+  \end{center}
+\end{figure}
+
+A more formal mathematical notation would be the limit as
+$i$ goes to infinity of $a_i$ is equal to a certain number, $a$:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-038.png}}
+  \end{center}
+\end{figure}
+
+But what exactly does this mean?
+What does it mean for a sequence to converge?
+What is the formal definition?
+It is as follows.
+Let us plot the sequence as a function of $i$.
+So this is the i-axis, and here we plot entries of $a_i$:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-039.png}}
+  \end{center}
+\end{figure}
+
+For a sequence to converge to a certain number a, we need to
+the following to happen.
+If we draw a small band around that number $a$, what we want is
+that the elements of the sequence, as $i$ increases,
+eventually get inside this band and stay
+inside that band forever:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-040.png}}
+  \end{center}
+\end{figure}
+
+Now, let us turn this into a more precise statement.
+What we mean is the following.
+If I give you some positive number epsilon, $\epsilon$, and I'm going
+to use that positive $\epsilon$ to define a band
+around the number $a$. So it's this band here:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-041.png}}
+  \end{center}
+\end{figure}
+
+If I give you a positive number $\epsilon$, and therefore,
+this way, have defined a certain band, there exists a
+time after which the entries will get the inside the band.
+In this picture, it would be this time:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-042.png}}
+  \end{center}
+\end{figure}
+
+So there exists a time ---
+let's call that time $i_0$ ---
+so $i_0$ is here such that after that time, what we have is
+that the element of the sequence is
+within $\epsilon$ of $a$:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-043.png}}
+  \end{center}
+\end{figure}
+
+So this is the formal definition of convergence of a
+sequence to a certain number a.
+The definition may look formidable and difficult to
+parse, but what it says in plain
+English is pretty simple.
+No matter what kind of band I take around my limit $a$,
+eventually, \emph{the sequence will be inside this band and will
+stay inside there}.
+
+Convergence of sequences has some very nice properties that
+you're probably familiar with.
+For example, if I tell you that a certain sequence
+converges to a number $a$ and another sequence converges to
+a number $b$, then we will have that $a_i$ plus $b_i$, which is a
+new sequence ---
+the ith element of the sequence is this sum ---
+will converge to $a$ plus $b$.
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-044.png}}
+  \end{center}
+\end{figure}
+
+Or similarly, $a_i$ times $b_i$, which is another sequence,
+converges to $a$ times $b$.
+And if, in addition, $g$ is a continuous function, then $g(a_i)$
+will converge to $g(a)$.
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-045.png}}
+  \end{center}
+\end{figure}
+
+So for example, if the $a_i$ converge to $a$, then the
+sequence $a_i^2$ is going to converge to $a^2$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{When does a sequence converge?}
+\label{un1-math-sequences-converge}
+
+Video: \href{https://www.youtube.com/watch?v=ekJCcJjyLAI}{When does a sequence converge?}
+(\href{Unit-1/02\_mathematical\_background/mb\_5\_transcripts.pdf}{transcripts})
+
+So we looked at the formal definition of what it means
+for a sequence to converge, but as a practical matter, how
+can we tell whether a given sequence converges or not?
+There are two criteria that are the most commonly used for
+that purpose, and it's useful to be aware of them.
+
+The first one deals with the case where we have a \emph{sequence
+of numbers that keep increasing, or at least, they
+do not go down}.
+In that case, those numbers may go up forever without any
+bound, so if you look at any particular value, there's
+going to be a time at which the sequence has
+exceeded that value.
+In that case, we say that the sequence
+converges to infinity:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-046.png}}
+  \end{center}
+\end{figure}
+
+But if this is not the case, if it does not converge to
+infinity, which means that the entries of the
+sequence are bounded ---
+they do not grow arbitrarily large ---
+then, in that case, it is guaranteed that the sequence
+will converge to a certain number:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-047.png}}
+  \end{center}
+\end{figure}
+
+This is not something that we will attempt to prove, but it
+is a useful fact to know.
+
+Another way of establishing convergence is to \emph{derive some
+bound on the distance or our sequence from the number that
+we suspect to be the limit}.
+If that distance becomes smaller and smaller, if we can
+manage to bound that distance by a certain number and that
+number goes down to 0, then it is guaranteed that since this
+distance goes down to 0, that the sequence, ai,
+converges to a:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-048.png}}
+  \end{center}
+\end{figure}
+
+And there's a variation of this argument, which is the
+so-called \emph{sandwich argument}, and it goes as follows.
+If we have a certain sequence that converges to some number,
+$a$, and we have another sequence that converges to
+that same number, $a$, and our sequence is somewhere
+in-between, then our sequence must also converge to that
+particular number, $a$:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-049.png}}
+  \end{center}
+\end{figure}
+
+So these are the usual ways of quickly saying something about
+the convergence of a given sequence, and we will be often
+using this type of argument in this class, but without making
+a big fuss about them, or without even referring to
+these facts in an explicit manner.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Infinite series}
+\label{un1-math-infinite-series}
+
+Video: \href{https://www.youtube.com/watch?v=zJljSLqUbUc}{Infinite series}
+(\href{Unit-1/02\_mathematical\_background/mb\_6\_transcripts.pdf}{transcripts})
+
+This will be a short tutorial on infinite series, their
+definition and their basic properties.
+
+What is an infinite series?
+We're given a sequence of numbers $a_i$, indexed by $i$,
+where $i$ ranges from 1 to $\infty$.
+So it's an infinite sequence.
+And we want to add the terms of that sequence together.
+We denote the resulting sum of that infinity of terms using
+this notation:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-050.png}}
+  \end{center}
+\end{figure}
+
+But what does that mean exactly?
+What is the formal definition of an infinite series?
+Well, the infinite series is defined as the limit, as $n$
+goes to infinity, of the finite series in which we add
+only the first $n$ terms in the series:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-051.png}}
+  \end{center}
+\end{figure}
+
+However, this definition makes sense only as long as the
+limit exists.
+This brings up the question, when does this limit exist?
+The nicest case arises when all the terms are
+non-negative.
+If all the terms are non-negative,
+here's what's happening.
+We consider the partial sum of the first $n$ terms.
+And then we increase $n$.
+This means that we add more terms.
+So the partial sum keeps becoming bigger and bigger.
+The sequence of partial sums is a \emph{monotonic sequence}.
+Now \emph{monotonic sequences always converge either to a finite
+number or to infinity}.
+In either case, this limit will exist, and therefore, the series is well defined:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-052.png}}
+  \end{center}
+\end{figure}
+
+The situation is more complicated if the terms $a_i$
+can have different signs:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-053.png}}
+  \end{center}
+\end{figure}
+
+In that case, it's possible that the limit does not exist.
+And so the series is not well defined.
+
+The more interesting and
+complicated case is the following.
+It's possible that this limit exists.
+However, if we \emph{rearrange the terms in the sequence, we
+might get a different limit}.
+When can we avoid those complicated situations?
+We can avoid them if it turns out that the sum of the
+absolute value of the numbers sums to a finite number.
+
+Now this series that we have here is an infinite series in
+which we add non-negative numbers.
+And by the fact that we mentioned earlier, this
+infinite series is always well defined.
+And it's going to be either finite or infinite.
+If it turns out to be finite, then the original series is
+guaranteed to be well defined, to have a finite limit when we
+define it that way, and furthermore, that finite limit
+is the same even if we rearrange the different terms,
+if we rearrange the sequence with which we sum the
+different terms.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{The geometric series}
+\label{un1-math-geometric-series}
+
+Video: \href{https://www.youtube.com/watch?v=friM7GDOcD0}{The geometric series}
+(\href{Unit-1/02\_mathematical\_background/mb\_7\_transcripts.pdf}{transcripts})
+
+One particular series that shows up in many applications,
+examples, or problems is the geometric series.
+[In] the geometric series, we are given a certain number,
+alpha, and we want to sum all the powers of alpha, starting
+from the 0th power, which is equal to 1, the first power,
+and so on, and this gives us an infinite series.
+It's the sum of alpha to the i where i
+ranges from 0 to infinity:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-054.png}}
+  \end{center}
+\end{figure}
+
+Now, for this series to converge, we need subsequent
+terms, the different terms in the series, to become smaller
+and smaller.
+And for this reason, we're going to make the assumption
+that the number alpha is less than 1 in magnitude, which
+implies that consecutive terms go to zero.
+
+Let us introduce some notation.
+Let us denote the infinite sum by S, and we're going to use
+that notation shortly.
+One way of evaluating this series is to start from an
+algebraic identity, namely the following.
+
+Let us take 1 minus alpha and multiply it by the terms in
+the series, but going only up to the term alpha to the n.
+So it's a finite series:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-055.png}}
+  \end{center}
+\end{figure}
+
+We do this multiplication, we get a bunch of terms, we do
+the cancellations, and what is left at the end is 1 minus
+alpha to the power n plus 1:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-056.png}}
+  \end{center}
+\end{figure}
+
+What we do next is we take the limit as n goes to infinity.
+On the left hand side, we have the term 1 minus alpha, and
+then the limit of this finite series is by definition the
+infinite series, which we're denoting by s.
+On the right hand side, we have the term 1.
+How about this term?
+Since alpha is less than 1 in magnitude, this converges to 0
+as alpha goes to infinity, so that term disappears.
+We can now solve this relation, and we obtain that s
+is equal to 1 over 1 minus alpha, and this is the formula
+for the infinite geometric series:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-057.png}}
+  \end{center}
+\end{figure}
+
+There's another way of deriving the same result,
+which is interesting, so let us go through it as well.
+The infinite geometric series has one first term and then
+the remaining terms, which is a sum for i going from 1 to
+infinity of alpha to the i.
+Now, we can take a factor of alpha out of this infinite sum
+and write it as 1 plus alpha, the sum of alpha to the i, but
+because we took out one factor of alpha, here, we're going to
+have smaller powers.
+So now the sum starts from 0 and goes up to infinity:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-058.png}}
+  \end{center}
+\end{figure}
+
+Now, this is just 1 plus alpha times s because here, we have
+the infinite geometric series:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-059.png}}
+  \end{center}
+\end{figure}
+
+Therefore, if we subtract alpha s from both sides of
+this equality, we get s times 1 minus alpha equal to 1.
+And now by moving 1 minus alpha to the denominator, we
+get again the same expression:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-060.png}}
+  \end{center}
+\end{figure}
+
+So this is an alternative way of deriving the same result.
+However, there's one word of caution.
+In this step, we subtracted alpha s from both
+sides of the equation.
+And in order to do that, this is only possible if we take
+for granted that s is a finite number.
+So this is taken for granted in order to carry out this
+derivation:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-061.png}}
+  \end{center}
+\end{figure}
+
+This is to be contrasted with the first derivation, in which
+we didn't have to make any such assumption.
+So strictly speaking, for this derivation here to be correct,
+we need to have some independent way of verifying
+that s is less than infinity.
+But other than that, it's an interesting algebraic trick.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{About the order of summation in series with multiple indices}
+\label{un1-math-order-summation}
+
+Video: \href{https://www.youtube.com/watch?v=CASxP2Pldmk}{About the order of summation in series with multiple indices}
+(\href{Unit-1/02\_mathematical\_background/mb\_8\_transcripts.pdf}{transcripts})
+
+We now continue our discussion of infinite series.
+Sometimes we have to deal with series where the terms being
+added are indexed by multiple indices, as in
+this example here:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-062.png}}
+  \end{center}
+\end{figure}
+
+We're given numbers, aij, and i ranges over all
+the positive integers.
+j also ranges over all the positive integers.
+So what does this sum represent?
+We can think of it as follows.
+We have here a two-dimensional grid that corresponds to all
+the pairs (i,j):
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-063.png}}
+  \end{center}
+\end{figure}
+
+And in essence, each one of those points corresponds to
+one of the terms that we want to add.
+So we can sum the different terms in some arbitrary order.
+Let's say we start from here.
+Take that term, add this term, then add this term here, then
+add this term, then the next term, next term, and so on.
+And we can keep going that way, adding the different
+terms according to some sequence:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-064.png}}
+  \end{center}
+\end{figure}
+
+So essentially, what we're doing here is we're taking
+this two-dimensional grid and arranging the terms associated
+with that grid, in some particular linear order.
+And we're summing those terms in sequence.
+As long as this sum converges to something as we keep adding
+more and more terms, then this double series
+will be well defined.
+
+Notice, however, we can add those terms in
+many different orders.
+And \emph{in principle, those different orders might give us
+different kinds of results}.
+
+On the other hand, as long as the sum of the absolute values
+of all the terms turns out to be finite, then the particular
+order in which we're adding the different terms will turn
+out that it doesn't matter:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-065.png}}
+  \end{center}
+\end{figure}
+
+There's another way that we can add the terms together,
+and this is the following.
+Let us consider fixing a particular choice of i, and
+adding all of the terms that are associated with this
+particular choice of i, as j ranges from 1 to infinity:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-066.png}}
+  \end{center}
+\end{figure}
+
+So what we're doing is we're taking the summation from j
+equal to 1 to infinity, while keeping the value of i fixed.
+We do this for every possible i:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-067.png}}
+  \end{center}
+\end{figure}
+
+So for every possible i, we're going to get
+a particular number.
+And then we take the numbers that we obtain for the
+different choices if i, so i ranges from 1 to infinity.
+And we add all those terms together.
+So this is one particular order, one particular way of
+doing the infinite summation.
+
+Now, why start with the summation over j's while
+keeping i fixed?
+There's no reason for that.
+We could also carry out the summation by fixing a
+particular choice of j and summing over all i's.
+So now it is i that ranges from 1 to infinity.
+And we look at this infinite sum.
+This is the infinite sum of those terms.
+We obtain one such infinite sum for every choice of j.
+And then we take that sum that we obtain for any particular
+choice of j, and add over the different
+possible values of j.
+So j goes from 1 to infinity:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-068.png}}
+  \end{center}
+\end{figure}
+
+This is a different way of carrying out the summation.
+And these are going to give us the same result, and the same
+result that we would also obtain if we were to add the
+terms in this particular order, as long as \emph{the double
+series is well-defined}, in the following sense:
+\emph{If we have a guarantee that the sum of the absolute values
+of those numbers is finite, no matter which way we add them,
+then it turns out that we can use any particular order to
+add the terms in the series}.
+We're going to get the same result.
+And we can also carry out the double summation by doing ---
+by adding over one index at a time:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-069.png}}
+  \end{center}
+\end{figure}
+
+A word of caution:
+this condition is not always satisfied.
+And in those cases, strange things can happen.
+Suppose that the sequences we're dealing with, the aij's,
+take those particular values indicated in this picture.
+And all the remaining terms, the aij's associated with the
+other dots, are all 0's.
+So all these terms out there will be 0's:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-070.png}}
+  \end{center}
+\end{figure}
+
+If we carry out the summation by fixing a j and adding over
+all i's, what we get here is 0, and a 0, and a 0, and a 0.
+That's because in each row we have a 1 and a minus 1, which
+cancel out and give us 0's.
+So if we carry out the summation in this manner, we
+get a sum of 0's, which is 0:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-071.png}}
+  \end{center}
+\end{figure}
+
+But if we carry out the summation in this order, fix
+an i, and then add over all j's, the first term that we
+get here is going to be 1, because in this column, this
+is the only non-zero number.
+And then in the remaining columns, as we add the terms,
+we're going to get 0's, and 0's, and so on.
+And so if we carry out the summation in this way, we
+obtain a 1:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-072.png}}
+  \end{center}
+\end{figure}
+
+So this is an example that shows you that the order of
+summation actually may matter.
+In this example, the sum of the absolute values of all of
+the terms that are involved is infinity, because we have
+infinitely many plus or minus 1's, so this condition here is
+not satisfied in this example.
+
+Let us now consider the case where we want to add the terms
+of a double sequence, but over a limited range of indices as
+in this example, where we have coefficients aij, which we
+want to add, but only for those i's and j's for which j
+is less than or equal to i:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-073.png}}
+  \end{center}
+\end{figure}
+
+Graphically, this means that we only want to consider the
+pairs shown in this picture:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-074.png}}
+  \end{center}
+\end{figure}
+
+So these points here correspond to i,j pairs for
+which i is equal to j.
+Terms on the right, or points to the right, correspond to
+i,j pairs for which i is at least as large as j.
+
+We can carry out this summation in two ways.
+One way is the following.
+We fix a value of i, and we consider all of the
+corresponding terms, that correspond to different
+choices of j.
+But we only go up to the point where i is equal to j.
+This is the largest term.
+So what are we doing here?
+We're taking the coefficients aij, and we are adding over
+all j's, starting from 1, which
+corresponds to this term.
+And j goes up to the point where it becomes equal to i.
+We do this for every value of i.
+And so we get a number for the sum of each one of the
+columns, and then we add those numbers together.
+So we're adding over all i's, and i ranges
+from 1 up to infinity:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-075.png}}
+  \end{center}
+\end{figure}
+
+This is one way of carrying out the summation.
+
+Alternatively, we could fix a value of j, and consider doing
+the summation over all choices of i.
+So this corresponds to the sum over all
+choices of i, from where?
+The smallest term, the first term, happens when i is equal
+to the value of j.
+And then we have larger choices of i, numbers for
+which i is bigger than the corresponding value of j.
+And so i ranges from j all the way to infinity.
+And this is the sum over one of the rows in this diagram.
+We do this for every j.
+We get a result, and then we need to add all
+those results together.
+So we're summing for all j's from 1 up to infinity:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-076.png}}
+  \end{center}
+\end{figure}
+
+So these are two different ways that we can evaluate this
+series associated with a double sequence.
+We can either add over all j's first and then over i's, or we
+can sum over all i's first, and then over all j's:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-077.png}}
+  \end{center}
+\end{figure}
+
+The two ways of approaching this problem, this summation,
+should give us the same answer.
+And this is going to be, again, subject to the usual
+qualification.
+As long as the \emph{sum of the absolute values of the terms
+that we're trying to add is less than infinity} ---
+if this condition is true, then the two ways of carrying
+out the summation are equal, and they're just two different
+alternatives.
+
+In this segment, we discuss the following fact. We are given a collection
+of real numbers $a_{ij}$, indexed by positive integers $i$ and $j$.
+When we write $\sum_{i \ge 1, j \ge 1} a_{ij}$, what we mean is the
+limit of the sum of the terms $a_{ij}$, where the summation is carried
+out by arranging these terms in a sequence and then adding.
+How do we know that different orderings will give the same result?
+
+There is the following important fact. If the infinite sum 
+$\sum_{i \ge 1, j \ge 1} |a_{ij}|$ is \emph{finite for some particular order}
+in which the summation is carried out, then the infinite series
+$\sum_{i \ge 1, j \ge 1} a_{ij}$ is well-defined and takes a value which is
+the same, no matter in which order the terms are added.
+
+Furthermore, in that case, we have
+
+\begin{equation*}
+  \sum_{i \ge 1, j \ge 1} a_{ij} = \sum_{i=1}^{\infty} \left(\sum_{j=1}^{\infty} a_{ij}\right) = \sum_{j=1}^{\infty} \left(\sum_{i=1}^{\infty} a_{ij}\right)
+\end{equation*}
+
+As a special case, if you are dealing with a finite sequence and sum,
+you can always interchange the order of summation.
+
+On the other hand, if $\sum_{i \ge 1, j \ge 1} |a_{ij}| = \infty$, and
+if we carry out the summation of the terms in the expression $\sum_{i \ge 1, j \ge 1} a_{ij}$
+in different orders, we may get either different values, or failure to
+converge, in which case the expression $\sum_{i \ge 1, j \ge 1} a_{ij}$
+is not well-defined. This is demonstrated by the example in the video.
+
+Note that perhaps this was not stated explicitly at that point in the video,
+but the example deals with an infinite sequence $a_{ij}$, which follows
+a certain pattern. The diagram shows only part of the sequence, but
+you should think of it as continuing forever with the pattern
+indicated in the diagram.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Countable and uncountable sets}
+\label{un1-math-countable-incontable-sets}
+
+Video: \href{https://www.youtube.com/watch?v=q0cVDeluL3c}{Countable and uncountable sets}
+(\href{Unit-1/02\_mathematical\_background/mb\_9\_transcripts.pdf}{transcripts})
+
+Probability models often involve \emph{infinite sample
+spaces}, that is, infinite sets.
+But not all sets are of the same kind.
+
+Some sets are \emph{discrete} and we call them \textbf{countable}, and some
+are \emph{continuous} and we call them \textbf{uncountable}.
+But what exactly is the difference between these two
+types of sets?
+How can we define it precisely?
+
+Well, let us start by first giving a definition of what it
+means to have a countable set.
+A set will be called \textbf{countable} \emph{if its elements can be put
+into a 1-to-1 correspondence with the positive integers}.
+This means that we look at the elements of that set, and we
+take one element --- we call it the first element.
+We take another element --- we call it the second.
+Another, we call the third element, and so on.
+And this way we will eventually exhaust all of the
+elements of the set, so that each one of those elements
+corresponds to a particular positive integer, namely the
+index that appears underneath:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-078.png}}
+  \end{center}
+\end{figure}
+
+More formally, what's happening is that we take
+elements of that set that are \emph{arranged in a sequence}.
+We look at the set, which is the entire range of values of
+that sequence, and we want that sequence \emph{to exhaust the
+entire set omega}.
+Or in other words, in simpler terms, we want to be able to
+arrange all of the elements of omega in a sequence:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-079.png}}
+  \end{center}
+\end{figure}
+
+So what are some examples of countable sets?
+In a trivial sense, the \emph{positive integers} themselves
+are countable, because we can arrange them in a sequence.
+This is almost tautological, by the definition.
+
+For a more interesting example, let's look at the set
+of \emph{all integers}.
+Can we arrange them in a sequence?
+Yes, we can, and we can do it in this manner, where we
+alternate between positive and negative numbers.
+And this way, we're going to cover all of the integers, and
+we have arranged them in a sequence.
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-080.png}}
+  \end{center}
+\end{figure}
+
+How about the set of all pairs of \emph{positive integers}?
+This is less clear.
+Let us look at this picture:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-081.png}}
+  \end{center}
+\end{figure}
+
+This is the set of all pairs of positive integers, which we
+understand to continue indefinitely.
+Can we arrange this sets in a sequence?
+It turns out that we can.
+And we can do it by tracing a path of this kind:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-082.png}}
+  \end{center}
+\end{figure}
+
+So you can probably get the sense of how
+this path is going.
+And by continuing this way, over and over, we're going to
+cover the entire set of all pairs of positive integers.
+So we have managed to arrange them in a sequence.
+So the set of all such pairs is indeed a countable set.
+
+And the same argument can be extended to argue for the set
+of all \emph{triples of positive integers}, or the set of all
+\emph{quadruples of positive integers}, and so on.
+This is actually not just a trivial mathematical point
+that we discuss for some curious reason, but it is
+because we will often have sample spaces
+that are of this kind.
+And it's important to know that they're countable:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-083.png}}
+  \end{center}
+\end{figure}
+
+Now for a more subtle example.
+Let us look at all \emph{rational numbers} within the range
+between 0 and 1.
+What do we mean by rational numbers?
+We mean those numbers that can be expressed as a
+ratio of two integers.
+It turns out that we can arrange them in a sequence,
+and we can do it as follows.
+Let us first look at rational numbers that have a
+denominator term of 2.
+Then, look at the rational numbers that have a
+denominator term of 3.
+Then, look at the rational numbers, always within this
+range of interest, that have a denominator of 4.
+And then we continue similarly ---
+rational numbers that have a denominator of 5, and so on.
+This way, we're going to exhaust all of
+the rational numbers:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-084.png}}
+  \end{center}
+\end{figure}
+
+Actually, this number here already appeared there.
+It's the same number.
+So we do not need to include this in a sequence, but that's
+not an issue.
+Whenever we see a rational number that has already been
+encountered before, we just delete it:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-085.png}}
+  \end{center}
+\end{figure}
+
+In the end, we end up with a sequence that goes over all of
+the possible rational numbers.
+And so we conclude that the set of all rational numbers is
+itself a countable set:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-086.png}}
+  \end{center}
+\end{figure}
+
+So what kind of set would be uncountable?
+\emph{An uncountable set, by definition, is a set that is
+not countable}.
+And there are examples of uncountable sets, most
+prominent, \emph{continuous subsets of the real line}.
+Whenever we have an interval, the unit interval, or any
+other interval that has positive length, that interval
+is an uncountable set.
+And the same is true if, instead of an interval, we
+look at the entire real line, or we look at the
+two-dimensional plane, or three-dimensional
+space, and so on.
+So all the usual sets that we think of as continuous sets
+turn out to be uncountable.
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-087.png}}
+  \end{center}
+\end{figure}
+
+How do we know that they are uncountable?
+There is actually a brilliant argument that establishes that
+the unit interval is uncountable.
+And then the argument is easily extended to other
+cases, like the reals and the plane.
+
+We do not need to know how this argument goes, for the
+purposes of this course.
+But just because it is so beautiful, we will actually be
+presenting it to you.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Proof that the set of real numbers is uncountable}
+\label{un1-math-proof-real-uncountable}
+
+Video: \href{https://www.youtube.com/watch?v=YiBwYemQajA}{Proof that the set of real numbers is uncountable}
+(\href{Unit-1/02\_mathematical\_background/mb\_10\_transcripts.pdf}{transcripts})
+
+For those of you who are curious, we will go through an
+argument that establishes that the set of real numbers is an
+uncountable set.
+It's a famous argument known as \emph{Cantor's
+  diagonalization argument}.
+
+Actually, instead of looking at the set of all real
+numbers, we will first look at the set of all numbers, x,
+that belong to the open unit interval ---
+so numbers between 0 and 1 ---
+and such that their decimal expansion involves
+only threes and fours.
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-088.png}}
+  \end{center}
+\end{figure}
+
+Now, the choice of three and four is somewhat arbitrary.
+It doesn't matter.
+What really matters is that we do not have
+long strings of nines.
+
+So suppose that this set was countable.
+If the set was countable, then that set could be written as
+equal to a set of this form, x1, x2, x3 and so on, where
+each one of these is a real number inside that set:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-089.png}}
+  \end{center}
+\end{figure}
+
+Now, suppose that this is the case.
+Let us take those numbers and write them
+down in decimal notation.
+For example, one number could be this one, and
+it continues forever.
+Since we're talking about real numbers, their decimal
+expansion will go on forever.
+Suppose that the second number is of this kind, and it has
+its own decimal expansion.
+Suppose that the third number is, again, with some decimal
+expansion and so on:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-090.png}}
+  \end{center}
+\end{figure}
+
+So we \emph{have assumed that our set is countable} and
+therefore, the set is equal to that sequence.
+So this sequence exhausts all the numbers in that set.
+Can it do that?
+
+Let's construct a new number in the following fashion.
+The new number looks at this digit and
+does something different.
+Looks at this digit, the second digit of the second
+number, and does something different.
+Looks at the third digit of the third number and does
+something different.
+And we continue this way:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-091.png}}
+  \end{center}
+\end{figure}
+
+This number that we have constructed here is different
+from the first number.
+They differ in the first digit.
+It's different from the second number.
+They differ in the second digit.
+It's different from the third number because it's different
+in the third digit and so on.
+So this is a number, and this number is different
+from $x_i$ for all $i$:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/mb-092.png}}
+  \end{center}
+\end{figure}
+
+So we have an element of this set which does not belong to
+this sequence.
+Therefore, it cannot be true that this set is equal to the
+set formed by that sequence.
+And so this is a contradiction to the initial assumption that
+this set could be written in this form, and this
+contradiction establishes that since this is not possible,
+that the set that we have here is an uncountable set.
+
+Now, this set is a subset of the set of real numbers.
+Since this one is uncountable, it is not hard to show that
+the set of real numbers, which is a bigger set, will also be
+uncountable.
+
+And so this is this particular famous argument.
+We will not need it or make any arguments of this type in
+this class, but it's so beautiful that it's worth for
+everyone to see it once in their lifetime.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Solved problems}
+\label{un1-solved-problems}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{The probability of the difference of two events}
+\label{un1-solved-problems-difference-of-two-events}
+
+Video: \href{https://www.youtube.com/watch?v=QahIePbC29E}{The probability of the difference of two events}
+(\href{Unit-1/03\_solved\_problems/sp\_1\_transcripts.jpg}{transcripts})
+
+The probability of the difference of two events. Give a mathematical derivation of the formula
+
+\begin{equation*}
+  P\left((A \cap B^c) \cup (A^c \cap B)\right) = P(A) + P(B) - 2P(A \cap B)
+\end{equation*}
+
+for the probability that exactly one of the events $A$ and $B$ will occur.
+Your derivation should be a sequence of steps, with each step justified by
+appealing to one of the probability axioms.
+
+Teaching Assistant: Kuang Xu
+
+In this problem, we're going to use the set of probability
+axioms to \emph{derive the probability of the difference of two
+events}.
+
+Now, before we get started, there's
+one thing you might notice, that the equation
+we're trying to prove is actually quite complicated.
+And I don't like it either, so the first thing
+we're going to do will be to find a simpler notation
+for the events that we're interested in.
+
+So we start with two events, A and B,
+and there might be some intersection between the two
+events:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-001.png}}
+  \end{center}
+\end{figure}
+
+We'll label the set of points or samples
+in A that are not in B, as a set C.
+So C will be A intersection B complement.
+Similarly, for all points that are
+in B but not in A, this area, we'll call it D.
+And D will be the set A complement intersection
+B. And finally, for points that are in the intersection of A
+and B, we'll call it E. So E is A intersection B.
+And for the rest of our problem, we're
+going to be using the notation C, D, and E
+instead of whatever's down below:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-002.png}}
+  \end{center}
+\end{figure}
+
+If we use this notation, we can rewrite our objective
+as the following.
+We want to show that the probability of C union D
+is equal to the probability of the event
+A plus the probability of B minus twice
+the probability of E. And that will
+be our goal for the problem:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-003.png}}
+  \end{center}
+\end{figure}
+
+Now, let's take a minute to review what the axioms are,
+what the probability axioms are.
+The first one says non-negativity.
+We take any event A, then the probability of A
+must be at least 0.
+The second, normalization, says the probability
+of the entire space, the entire sample space omega,
+must be equal to 1.
+And finally, the additivity axiom,
+which will be the axiom that we're
+going to use for this problem says,
+if there are two events, A and B that are disjoint --- which
+means they don't have anything in common, therefore.
+the intersection is the empty set.
+Then the probability of their union
+will be equal to the probabilty A plus the probability of B:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-004.png}}
+  \end{center}
+\end{figure}
+
+For the rest of the problem, I will
+refer to this axiom as ADD.
+So whenever we invoke this axiom,
+I'll write "ADD" on the board.
+
+Let's get started.
+First, we'll invoke the additivity axioms
+to argue that the probability of C union D
+is simply the sum of probability of C plus probability of D:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-005.png}}
+  \end{center}
+\end{figure}
+
+Why is this true?
+We can apply this axiom, because the set C here and the set
+D here, they're completely disjoint from each other.
+And in a similar way, we also notice the following.
+We see that A is equal to the union of the set C and E.
+And also, C and E, they're disjoint with each other,
+because C and E by definition don't share any points.
+And therefore, we have probability of A
+is equal to probability of C plus the probability of E:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-006.png}}
+  \end{center}
+\end{figure}
+
+Now,
+in a similar way, the probability
+of event B can also be written as a probability of D
+plus the probability of E, because event B
+is the union of D and E.
+And D and E are disjoint from each other.
+So we again invoke the additivity axiom:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-007.png}}
+  \end{center}
+\end{figure}
+
+Now, this should be enough to prove our final claim.
+We have the probability of C union
+D. By the very first line, we see this is simply
+probability of C plus the probability of D.
+Now, I'm going to insert two terms here
+to make the connection with a second part
+of the equation more obvious.
+That is, I will write probability C plus probability
+E plus probability D plus probability of E. Now,
+I've just added two terms here --- probability E. So
+to make the equality valid we'll subtract out
+two times, the probability of E.
+Hence this equality is valid:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.5]{imagens/unit-1/sp-008.png}}
+  \end{center}
+\end{figure}
+
+So if we look at this equation, we
+see that there are two parts here that we've already
+seen before, right here.
+The very first parenthesis is equal to the probability of A.
+And the value of the second parenthesis
+is equal to the probability of B. We just derived these here.
+And finally, we have the minus 2 probability of E.
+This line plus this line gives us the final equation.
+And that will be the answer for the problem.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Geniuses and chocolates}
+\label{un1-solved-problems-geniuses}
+
+Video: \href{https://www.youtube.com/watch?v=03ckSzMreeM}{Geniuses and chocolates}
+(\href{Unit-1/03\_solved\_problems/sp\_2\_transcripts.jpg}{transcripts})
+
+Geniuses and chocolates. Out of the students in a class, 60\% are geniuses, 70\%
+love chocolate, and 40\% fall into both categories. Determine the probability that
+a randomly selected student is neither a genius nor a chocolate lover.
+
+Teaching Assistant: Katie Szeto
+
+Hi.
+Today, we're going to do a really fun problem called
+geniuses and chocolates.
+And what this problem is exercising is your knowledge
+of properties of probability laws.
+So let me just clarify what I mean by that.
+
+Hopefully, by this point, you have already learned what the
+axioms of probability are.
+And properties of probability laws are essentially any rules
+that you can derive from those axioms.
+
+So take for example the fact that the probability of A
+union B is equal to the probability of A plus the
+probability of B minus the probability of the
+intersection.
+That's an example of a property of a probability law.
+
+So enough with the preamble.
+Let's see what the problem is asking us.
+In this problem, we have a class of students.
+And we're told that 60\% of the students are geniuses.
+70\% of the students love chocolate.
+So I would be in that category.
+And 40\% fall into both categories.
+
+And our job is to determine the probability that a
+randomly selected student is neither a genius nor a
+chocolate lover.
+
+So first I just want to write down the information that
+we're given in the problem statement.
+So if you let G denote the event that a randomly selected
+student is a genius then the problem statement tells us
+that the probability of G is equal to 0.6.
+Similarly, if we let C denote the event that a randomly
+selected student is a chocolate lover, then we have
+that the probability of C is equal to 0.7.
+Lastly, we are told that the probability a randomly
+selected student falls into both categories is 0.4.
+And the way we can express that using the notation
+already on the board is probability of G intersect C
+is equal to 0.4:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.5]{imagens/unit-1/sp-009.png}}
+  \end{center}
+\end{figure}
+
+OK, now one way of approaching this problem is to essentially
+use this information and sort of massage it using properties
+of probability laws to get to our answer.
+Instead, I'm going to take a different approach, which I
+think will be helpful.
+So namely, we're going to use something
+called a Venn diagram.
+
+Now a Venn diagram is just a tool that's really useful for
+telling you how different sets relate to each other and how
+their corresponding probabilities
+relate to each other.
+So the way you usually draw this is you draw a rectangle,
+which denotes your sample space, which of course, we
+call omega.
+And then you draw two intersecting circles.
+So one to represent our geniuses and one to represent
+our chocolate lovers:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.5]{imagens/unit-1/sp-010.png}}
+  \end{center}
+\end{figure}
+
+And the reason why I drew them intersecting is because we
+know that there are 40\% of the students in our class are both
+geniuses and chocolate lovers.
+
+OK, and the way you sort of interpret this diagram is the
+space outside these two circles correspond to students
+who are neither geniuses nor chocolate lovers.
+And so just keep in mind that the probability corresponding
+to these students on the outside, that's actually what
+we're looking for.
+Similarly, students in this little shape, this tear drop
+in the middle, those would correspond to geniuses and
+chocolate lovers.
+You probably get the idea.
+So this is our Venn diagram.
+
+Now I'm going to give you guys a second trick if you will.
+And that is to work with \emph{partitions}.
+So I believe you've seen partitions in lecture by now.
+And a partition is essentially a way of cutting up the sample
+space into pieces.
+But you need two properties to be true.
+So the pieces that you cut up your sample space into, they
+need to be \emph{disjoint}, so they can't overlap.
+So for instance, G and C are not disjoint because they
+overlap in this tear drop region.
+
+Now the second thing that a partition has to satisfy is
+that if you put all the pieces together, they have to
+\emph{comprise the entire sample space}.
+So I'm just going to put these labels down on my graph.
+X, Y, Z, and W. So X is everything outside the two
+circles but inside the rectangle.
+And just note, again, that what we're actually trying to
+solve in this problem is the probability of X, the
+probability that you're neither genius, because you're
+not in this circle, and you're not a chocolate lover, because
+you're not in this circle:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.5]{imagens/unit-1/sp-011.png}}
+  \end{center}
+\end{figure}
+
+So Y I'm using to refer to this sort of
+crescent moon shape.
+Z, I'm using to refer to this tear drop.
+And W, I'm using to refer to this shape.
+
+So, hopefully, you agree that X, Y, Z, and W form a
+partition because they don't overlap.
+So they are disjoint.
+And together they form omega.
+So now we're ready to do some computation.
+
+The first step is to sort of get the information we have
+written down here in terms of these new labels.
+So hopefully, you guys buy that G is just the union of Y
+and Z. And because Y and Z are disjoint, we get that the
+probability of the union is the sum of the probabilities.
+And, of course, we have from before that this is 0.6.
+
+Similarly, we have that the probability of C is equal to
+the probability of Z union W. And, again, using the fact
+that these two guys are disjoint, you get this
+expression.
+And that is equal to 0.7.
+
+OK, and the last piece of information, G intersects C
+corresponds to Z, or our tear drop, and so we have that the
+probability of Z is equal to 0.4.
+
+And now, if you notice, probability of Z shows up in
+these two equations.
+So we can just plug it in.
+So plug in 0.4 into this equation.
+We get P of Y plus 0.4 is 0.6.
+So that implies that P of Y is 0.2.
+That's just algebra.
+And similarly we have point.
+0.4 plus P of W is equal to 0.7.
+So that implies that P of W is 0.3.
+Again, that's just algebra.
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.5]{imagens/unit-1/sp-012.png}}
+  \end{center}
+\end{figure}
+
+So now we're doing really well because we have a lot of
+information.
+We know the probability of Y, the probability of Z, the
+probability of W. But remember we're going for, we're trying
+to find the probability of X. So the way we finally put all
+this information together to solve for X is we use the
+axiom that tells us that 1 is equal to the probability of
+the sample space.
+And then, again, we're going to use sort of this really
+helpful fact that X, Y, Z, and W form a partition of omega to
+go ahead and write this as probability of X plus
+probability of Y plus probability,
+oops, I made a mistake.
+Hopefully, you guys caught that.
+It's really, oh, no.
+I'm right.
+Never mind.
+Probability of X plus probability of Y plus
+probability of Z plus probability of W. And now we
+can go ahead and plug-in the values that we solved for
+previously.
+So we get probability of X plus 0.2 plus 0.4 plus 0.3.
+These guys sum to 0.9.
+So, again, just simple arithmetic, we get that the
+probability of X is equal to 0.1.
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.5]{imagens/unit-1/sp-013.png}}
+  \end{center}
+\end{figure}
+
+So we're done because we've successfully found that the
+probability that a randomly selected student is neither a
+genius nor a chocolate lover is 0.1.
+
+So this was a fairly straightforward problem.
+But there are some important takeaways:
+
+\begin{itemize}
+\item \textbf{Venn Diagrams}: The first one is that Venn diagrams are
+  a really nice tool. Whenever the problem is asking you how different sets relate
+  to each other or how different probabilities relate to each
+  other, you should probably draw a Venn diagram because it
+  will help you.
+\item \textbf{Partitions}: And the second takeaway is that it's frequently useful to
+  divide your sample space into a partition mainly because the
+  pieces that compose a partition are disjoint.
+  So we will be back soon to solve more problems.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Uniform probabilities on a square}
+\label{un1-solved-uniform-prob}
+
+Video: \href{https://www.youtube.com/watch?v=lVeROX4Mkv8}{Uniform probabilities on a square}
+%(\href{Unit-1/03\_solved\_problems/sp\_3\_transcripts.jpg}{transcripts})
+
+Uniform probabilities on a square. Romeo and Juliet have a date at a given time,
+and each will arrive at the meeting place with a delay between 0 and 1 hour, with
+all pairs of delays being “equally likely," that is, according to a uniform
+probability law on the unit square. The first to arrive will wait for 15 minutes
+and will leave if the other has not arrived. What is the probability that they
+will meet?
+
+Teaching Assistant: Jimmy Li
+
+In this problem, we will be helping Romeo and Juliet meet
+up for a date. And in the process, also we'll review some concepts in basic
+probability theory, including sample spaces
+and probability laws.
+
+This problem, the basic setup is that Romeo and Juliet are
+trying to meet up for a date.
+And let's say they're trying to meet up for
+lunch tomorrow at noon.
+But they're not necessarily punctual.
+So they may arrive on time with a delay of 0, or they may
+actually be up to 1 hour late and arrive at 1:00 PM.
+
+So the other thing that we assume in this problem is that
+all pairs of arrival times --- so the time that Romeo arrives
+paired with the time they Juliet arrives ---
+all of these pairs are equally likely.
+And I've put this in quotes, because we haven't really
+specify exactly what this means.
+And we'll come back to that in a little bit.
+
+The last important thing is that each person will wait for
+15 minutes for the other person to arrive.
+If within that 15-minute window the other person
+doesn't arrive, then they'll give up and they'll end up not
+meeting up for lunch.
+
+So to solve this problem, let's first try to \emph{set up a
+sample space} and come up with a \emph{probability law} to describe
+this scenario.
+
+And let's actually start with a simpler
+version of this problem.
+And instead of assuming that they can arrive at any delay
+between 0 and 1 hour, let's pretend instead that Romeo and
+Juliet can only arrive in 15-minute increments.
+So Romeo can arrive on time with a delay 0, or be 15
+minutes late, 30 minutes late, 45 minutes
+late, or one hour late.
+But none of the other times are possible.
+And the same thing for Juliet:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-014.png}}
+  \end{center}
+\end{figure}
+
+Let's start out with just the simple case first, because it
+helps us get the intuition for the problem, and it's an
+easier case to analyze.
+So it's actually easy to visualize this.
+It's a nice visual tool to group this sample
+space into a grid.
+So the horizontal axis here represents the arrival time of
+Romeo, and the vertical axis represents the
+arrival time of Juliet.
+And so, for example, this point here would represent
+Romeo arriving 15 minutes late and Juliet
+arriving 30 minutes late:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-015.png}}
+  \end{center}
+\end{figure}
+
+So this is our sample space now.
+This is our omega.
+And now let's try to assign a probability law.
+And we'll continue to assume that all pairs of arrival 
+times are equally likely.
+And now we can actually specifically specify what this
+term means.
+And in particular, we'll be invoking the \emph{discrete uniform
+law}, which basically says that all of these points, which are
+just outcomes in our probabilistic experiment ---
+all of these outcomes are equally likely.
+And so since there are 25 of them, each one of these
+outcomes has a probability of 1 over 25.
+
+So now we've specified our sample space and our
+probability law.
+So now let's try to answer the question, what is the
+probability that Romeo and Juliet will meet
+up for their date?
+So all that amounts to now is just identifying which of
+these 25 outcomes result in Romeo and Juliet arriving
+within 15 minutes of each other.
+
+So let's start with this one that I've picked out.
+If Romeo arrives 15 minutes late and Juliet arrives 30
+minutes late, then they will arrive within 15 minutes of
+each other.
+So this outcome does result in the two of them meeting.
+And so we can actually highlight all of these.
+And it turns out that these outcomes that I'm highlighting
+result in the two them arriving within 15 minutes of
+each other:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-016.png}}
+  \end{center}
+\end{figure}
+
+So because each one has a probability of 1 over 25, all
+we really need to do now is just count how many
+outcomes there are.
+So there's 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13.
+So the probability in the end is for the discrete case.
+The discrete case ---
+I'm referring to the case where we simplified it and
+considered only arrival times with increments of 15 minutes.
+In this case, the probability is 13 over 25.
+
+So now we have an idea of how to solve this problem.
+It amounts to basically coming up with a sample space, a
+probability law, and then identifying the event of
+interest and calculating the probability of that event.
+So now let's actually solve the problem that we really are
+interested in, which is that instead of confining Romeo and
+Juliet to arrive in only 15-minute minute increments,
+really, time is continuous, and Romeo and Juliet can
+arrive at any time.
+So they don't necessarily have to arrive 15 minutes late.
+Romeo could arrive 15 minutes and 37 seconds late
+if he wanted to.
+So now our new sample space is actually just, instead of only
+these 25 points in the grid, it's this entire square.
+So any point within the square could be a possible pair of
+meeting times between Romeo and Juliet:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-017.png}}
+  \end{center}
+\end{figure}
+
+So that is our new sample space, our new omega.
+And now let's assign a new probability law.
+And now, instead of being in the discrete world, we're in
+the continuous world.
+And the analogy here is to consider
+probabilities as areas.
+So the area of this entire square is one.
+And that also corresponds to the probability of omega, the
+sample space.
+And imagine just spreading probability evenly across this
+square so that the probability of any event ---
+which in this case would just be any
+shape within this square ---
+is exactly equal to the area of that shape.
+So now that is our new sample space and our
+new probability law.
+So what we have to do now is just to identify the event of
+interest, which is still the event that Romeo and Juliet
+arrive within 15 minutes of each other.
+So let's do that.
+If Romeo and Juliet arrive both on time, then obviously
+they'll meet.
+And if Romeo's on time and Juliet is 15 minutes late,
+then they will still meet.
+And in fact, any pairs of meeting times between these
+would still work, because now Romeo can be on time, and
+Juliet can arrive at any time between 0 and 15 minutes late.
+But you notice that if Juliet is even a tiny bit later than
+15 minutes, then they won't end up meeting.
+So this segment here is part of the event of interest.
+And similarly, this segment here is
+also part of the event.
+And if you take this exercise and extend it, you can
+actually verify that the event of interest is this strip
+shape in the middle of the square.
+Which, if you think about it, makes sense, because you want
+the arrival times between Romeo and Juliet to be close
+to each other, so you would be expect it to be somewhere
+close to a diagonal in this square:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-018.png}}
+  \end{center}
+\end{figure}
+
+So now we have our event of interest.
+We have our sample space and our probability law.
+So all we have to do now is just calculate what this
+probability is.
+And we've already said that the probability in this
+probability law is just areas.
+So now it actually just boils down to not a probability
+problem, but a problem in geometry.
+
+So to calculate this area, you can do it in lots of ways.
+One way is to calculate the area of the square, which is
+1, and subtract the areas of these two triangles.
+So let's do that.
+So in the continuous case, the probability of meeting is
+going to be 1 minus the area of this triangle.
+The base here is 3/4 and 3/4, so it's 1/2
+times 3/4 times 3/4.
+That's the area of one of these triangles.
+There's two of them, so we'll multiply by two.
+And we end up with 1 minus 9/16, or 7/16
+as our final answer:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-019.png}}
+  \end{center}
+\end{figure}
+
+So in this problem, we've reviewed some basic concepts
+of probability, and that's also helped us solve this
+problem of helping Romeo and Juliet meet up for a date.
+
+And if you wanted to, you could even extend this problem
+even further and turn it on its head.
+And instead of calculating given that they arrive within
+15 minutes of each other, what is the probability that
+they'll meet, let's say that Romeo really wants to meet up
+with Juliet, and he wants to assure himself a least, say, a
+90\% chance of meeting Juliet.
+Then you can ask, if he wants to have at least a 90\% chance
+of meeting her, how long should he be willing to wait?
+And so that's the flip side of the problem.
+
+And you can see that with just some basic concepts of
+probability, you can answer some already pretty
+interesting problems.
+So I hope this problem was interesting, and we'll
+see you next time.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Bonferroni's inequality}
+\label{un1-solved-bonferroni}
+
+Video: \href{https://www.youtube.com/watch?v=dTPwQEegHxw}{Bonferroni's inequality}
+(\href{Unit-1/03\_solved\_problems/sp\_4\_transcripts.pdf}{transcripts})
+
+Bonferroni's inequality:
+
+(a) Prove that for any two events $A_1$ and $A_2$, we have
+\begin{equation*}
+  P(A_1 \cap A_2) \ge P(A_1) + P(A_2) -1
+\end{equation*}
+
+(b) Generalize to the case of $n$ events $A_1, A_2, \ldots, A_n$, showing that
+\begin{equation*}
+  P(A_1 \cap A_2 \cap \ldots \cap A_n) = P(A_1) + P(A_2) + \cdots + P(A_n) - (n-1)
+\end{equation*}
+
+Instructor: John Tsitsiklis 
+
+In this segment, we will discuss a little
+bit the \emph{union bound}.
+And then discuss a counterpart, which is known as
+the \emph{Bonferroni inequality}.
+Let us start with a story.
+
+Suppose that we have a number of students in some class.
+And we have a set of students that are smart, let's call
+that set $A_1$.
+So this is the set of smart students.
+And we have a set of students that are beautiful.
+And let's call that set $A_2$.
+So $A_2$ is the set of beautiful students.
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-020.png}}
+  \end{center}
+\end{figure}
+
+If I tell you that the set of smart students is small, and
+the set of beautiful students [is] small, then you can
+probably conclude that there are very few students that are
+either smart or beautiful.
+
+What does this have to do with probability?
+Well, when we say very few are smart, we might mean that if I
+pick a student at random, there's only a small
+probability that I pick a smart student.
+And similarly for beautiful students.
+
+Can we make this statement more precise?
+Indeed we can.
+We have the \emph{union bound} that tells us that the probability
+that I pick a student that is either smart or beautiful is
+less than or equal to the probability of picking a smart
+student plus the probability of
+picking a beautiful student:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-021.png}}
+  \end{center}
+\end{figure}
+
+So if this probability is small, and that probability is
+small, then this probability will also be small.
+Which means that there is only a small number of students
+that are either smart or beautiful.
+
+Now let us try to turn this statement around its head.
+Suppose that most of the students are smart.
+And most of the students are beautiful.
+So in this case, I'm telling you that these sets,
+A1 and A2 are big.
+
+Now if the set A1 is big, then it means that this set here,
+the complement of A1, is a small set:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-022.png}}
+  \end{center}
+\end{figure}
+
+And if I tell you that the set A2 is big, then it means that
+this set here, which is a complement
+of A2, is also small:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-023.png}}
+  \end{center}
+\end{figure}
+
+So everything outside here is a small set.
+Which means that whatever is left ---
+which is the intersection of A1 and A2
+--- should be a big set.
+So we should be able to conclude that in this case,
+most of the students belong to the intersection.
+So they're both smart and beautiful:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-024.png}}
+  \end{center}
+\end{figure}
+
+How can we turn this into a mathematical statement?
+It's the following inequality that we will prove shortly:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-025.png}}
+  \end{center}
+\end{figure}
+
+But what it says is that the probability of the
+intersection is larger than or equal to something.
+And if this probability is close to 1, which says that
+most of the students are smart, and this probability is
+close to 1, which says that most students are beautiful,
+then this difference here is going to be close to 1 plus 1
+minus 1, which is 1.
+
+Therefore, the probability of the intersection is going to
+be larger than or equal to some number that's close to 1.
+So this one will also be close to 1, which is the conclusion
+that indeed, most students fall into this intersection.
+And they're both smart and beautiful.
+
+So what we will do next will be to derive this inequality
+and actually generalize it.
+So here is the relation that we wish to establish:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-026.png}}
+  \end{center}
+\end{figure}
+
+We want to show that the probability of a certain event
+is bigger than something.
+How do we show that?
+One way is to show that the probability of the complement
+of this event,
+namely this event here, $(A_1 \cap A_2)$, we want to show that this event
+has small probability.
+
+Now what is this event?
+Here we can use De Morgan's laws, which tell us that this
+event is the same as this one.
+That is, the complement of an intersection is the union of
+the complements:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-027.png}}
+  \end{center}
+\end{figure}
+
+Since these two sets or events are identical, it means that
+their probabilities will also be equal.
+And next we will use the union bound to write this
+probability as being less than or equal to the sum of the
+probabilities of the two events whose
+union we are taking:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-028.png}}
+  \end{center}
+\end{figure}
+
+Now we're getting close, except that here we have
+complements all over.
+Whereas up here we do not have any complements.
+What can we do?
+Well, the probability of a complement of an event is the
+same as 1 minus the probability of that event.
+And we do the same thing for the terms that we have here.
+This probability here is equal to 1 minus the
+probability of A1.
+And this probability here is equal to 1 minus the
+probability of A2:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-029.png}}
+  \end{center}
+\end{figure}
+
+And now if we take this inequality, cancel this term
+with that term, and then move terms around, what we have is
+exactly this relation that we wanted to prove:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-030.png}}
+  \end{center}
+\end{figure}
+
+It turns out that this inequality has a
+generalization to the case where we take the intersection
+of n events:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-031.png}}
+  \end{center}
+\end{figure}
+
+And this has again the same intuitive content.
+Suppose that each one of these events, A1 up to An, is almost
+certain to occur.
+That is, it has a probability close to 1.
+
+In that case, this term will be close to n.
+We subtract n minus 1.
+So this term on the right hand side will be close to 1.
+Therefore the probability of the intersection will be
+larger than or equal to something that's close to 1.
+So this is big.
+
+Essentially, what it's saying is that [if] we have big sets.
+And we take their intersection.
+Then that intersection will also be big in terms of having
+large probability.
+
+How do we prove this relation?
+Exactly the same way as it was proved for
+the case of two sets.
+Namely, instead of looking at this event, we look at the
+complement of this event.
+And we use De Morgan's laws to write this complement as the
+union of the complements.
+These two are the same sets or events, so they have the same
+probability.
+And then we use the union bound to write this as being
+less than or equal to the probabilities
+of all those sets:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-032.png}}
+  \end{center}
+\end{figure}
+
+Now this is equal to 1 minus the probability of the
+intersection.
+This side here is equal to 1 minus the probability of A1.
+This is one term.
+We get n such terms, the last one being 1 minus the
+probability of An.
+And we still have an inequality going this way:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-033.png}}
+  \end{center}
+\end{figure}
+
+We collect those ones that we have here.
+There's n over them.
+And one here.
+So we're left with n minus 1 terms that are equal to 1.
+And this gives rise to this term.
+We have all of the probabilities of the various
+events that appear with the same sign.
+This gives rise to this term.
+And finally, this term here will correspond to that term.
+Namely, if we start with this inequality and just rearrange
+a few terms, we obtain this inequality up here:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-1/sp-034.png}}
+  \end{center}
+\end{figure}
+
+So these Bonferroni inequalities are a nice
+illustration of how one can combine De Morgan's laws, set
+-theoretic operations, and the union bound in order to obtain
+some interesting relations between probabilities.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Problem Set 1}
+\label{un1-ps1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Venn diagrams}
+\label{un1-ps1-venn-diagrams}
+
+\begin{exercise}
+  \textbf{Venn diagrams}\\
+  In this problem, you are given descriptions in words of certain events
+  (e.g., "at least one of the events $A, B, C$ occurs"). For each one of these
+  descriptions, identify the correct symbolic description in terms of $A, B, C$
+  from Events E1-E7 below. Also identify the correct description in terms of
+  regions (i.e., subsets of the sample space $\Omega$) as depicted in the Venn
+  diagram below. (For example, Region 1 is the part $A$ of outside of $B$ and $C$.)
+
+  \begin{figure}[H]
+    \begin{center}
+      %\caption{}
+      %\label{fig:}
+      \includegraphics[scale=0.6]{imagens/unit-1/ps-001.jpg}%
+      %\fbox{\includegraphics[scale=0.6]{imagens/unit-1/ps-001.jpg}}
+    \end{center}
+  \end{figure}
+
+  \begin{figure}[H]
+    \begin{center}
+      %\caption{}
+      %\label{fig:}
+      %\includegraphics[scale=0.6]{imagens/unit-1/ps-001.jpg}%
+      \fbox{\includegraphics[scale=0.6]{imagens/unit-1/ps-002.png}}
+    \end{center}
+  \end{figure}
+
+  a) At least two of the events A, B, C occur.
+  \begin{itemize}[noitemsep]
+  \item[$\bigcirc$] Event E1
+  \item[$\bigcirc$] Event E2
+  \item[$\bigcirc$] Event E3
+  \item[$\bigcirc$] Event E4
+  \item[$\bigcirc$] Event E5
+  \item[$\bigcirc$] Event E6
+  \item[$\bigcirc$] Event E7
+  \end{itemize}
+
+  \begin{itemize}[noitemsep]
+  \item[$\bigcirc$] Regions 1 3 4 7
+  \item[$\bigcirc$] Regions 2 5 6
+  \item[$\bigcirc$] Regions 2 4 5 6
+  \item[$\bigcirc$] Regions 1 2 3 5 6 7
+  \end{itemize}
+
+  b) At most two of the events A, B, C occur.
+  \begin{itemize}[noitemsep]
+  \item[$\bigcirc$] Event E1
+  \item[$\bigcirc$] Event E2
+  \item[$\bigcirc$] Event E3
+  \item[$\bigcirc$] Event E4
+  \item[$\bigcirc$] Event E5
+  \item[$\bigcirc$] Event E6
+  \item[$\bigcirc$] Event E7
+  \end{itemize}
+
+  \begin{itemize}[noitemsep]
+  \item[$\bigcirc$] Regions 1 2 3 5 6 7
+  \item[$\bigcirc$] Regions 2 5 6
+  \item[$\bigcirc$] Regions 2 4 5 6
+  \item[$\bigcirc$] Regions 1 2 3 5 6 7 8
+  \end{itemize}
+
+  c) None of the events A, B, C occurs.
+  \begin{itemize}[noitemsep]
+  \item[$\bigcirc$] Event E1
+  \item[$\bigcirc$] Event E2
+  \item[$\bigcirc$] Event E3
+  \item[$\bigcirc$] Event E4
+  \item[$\bigcirc$] Event E5
+  \item[$\bigcirc$] Event E6
+  \item[$\bigcirc$] Event E7
+  \end{itemize}
+
+  \begin{itemize}[noitemsep]
+  \item[$\bigcirc$] Regions 8
+  \item[$\bigcirc$] Regions 1 3 7
+  \item[$\bigcirc$] Regions 4
+  \item[$\bigcirc$] Regions 2 4 5 6
+  \end{itemize}
+
+  d) All three events A, B, C occur.
+  \begin{itemize}[noitemsep]
+  \item[$\bigcirc$] Event E1
+  \item[$\bigcirc$] Event E2
+  \item[$\bigcirc$] Event E3
+  \item[$\bigcirc$] Event E4
+  \item[$\bigcirc$] Event E5
+  \item[$\bigcirc$] Event E6
+  \item[$\bigcirc$] Event E7
+  \end{itemize}
+
+  \begin{itemize}[noitemsep]
+  \item[$\bigcirc$] Regions 8
+  \item[$\bigcirc$] Regions 1 3 7
+  \item[$\bigcirc$] Regions 4
+  \item[$\bigcirc$] Regions 2 4 5 6
+  \end{itemize}
+
+  e) Exactly one of the events A, B, C occurs.
+  \begin{itemize}[noitemsep]
+  \item[$\bigcirc$] Event E1
+  \item[$\bigcirc$] Event E2
+  \item[$\bigcirc$] Event E3
+  \item[$\bigcirc$] Event E4
+  \item[$\bigcirc$] Event E5
+  \item[$\bigcirc$] Event E6
+  \item[$\bigcirc$] Event E7
+  \end{itemize}
+
+  \begin{itemize}[noitemsep]
+  \item[$\bigcirc$] Regions 2 5 6
+  \item[$\bigcirc$] Regions 1 3 7
+  \item[$\bigcirc$] Regions 4
+  \item[$\bigcirc$] Regions 2 4 5 6
+  \end{itemize}
+
+  f) Events A and B occur, but C does not occur.
+  \begin{itemize}[noitemsep]
+  \item[$\bigcirc$] Event E1
+  \item[$\bigcirc$] Event E2
+  \item[$\bigcirc$] Event E3
+  \item[$\bigcirc$] Event E4
+  \item[$\bigcirc$] Event E5
+  \item[$\bigcirc$] Event E6
+  \item[$\bigcirc$] Event E7
+  \end{itemize}
+
+  \begin{itemize}[noitemsep]
+  \item[$\bigcirc$] Regions 2
+  \item[$\bigcirc$] Regions 2 4
+  \item[$\bigcirc$] Regions 4
+  \item[$\bigcirc$] Regions 1 4 5 6
+  \end{itemize}
+
+  g) Either (i) event B occurs, or (ii) neither B or C occurs.
+  \begin{itemize}[noitemsep]
+  \item[$\bigcirc$] Event E1
+  \item[$\bigcirc$] Event E2
+  \item[$\bigcirc$] Event E3
+  \item[$\bigcirc$] Event E4
+  \item[$\bigcirc$] Event E5
+  \item[$\bigcirc$] Event E6
+  \item[$\bigcirc$] Event E7
+  \end{itemize}
+
+  \begin{itemize}[noitemsep]
+  \item[$\bigcirc$] Regions 2 3 4 6
+  \item[$\bigcirc$] Regions 2 3 4 6 8
+  \item[$\bigcirc$] Regions 1 2 3 4 6 8
+  \item[$\bigcirc$] Regions 1 2 3 4 5 6 8
+  \end{itemize}
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Set operations and probabilities}
+\label{un1-ps1-set-operations}
+
+\begin{exercise}
+  \textbf{Set operations and probabilities}\\
+  Find the value of $P(A \cup (B^c \cup C^c)^c)$ for each of the following cases:
+
+  a) The events A, B, C are disjoints events and $P(A) = 2/5$.
+
+  b) The events A and C are disjoint, and $P(A)=1/2$ and $P(B \cap C)=1/4$.
+
+  c) $P(A^c \cap (B^c \cup C^c))=0.7$.
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Three tosses of a fair coin}
+\label{un1-ps1-coin}
+
+\begin{exercise}
+  \textbf{Three tosses of a fair coin}\\
+  You flip a fair coin (i.e., the probability of obtaining Heads is 1/2) three times.
+  Assume that all sequences of coin flip results, of length 3, are equally likely.
+  Determine the probability of each of the following events.
+
+  a) $\{H H H\}$: 3 Heads
+
+  b) $\{H T H\}$: the sequence Heads, Tails, Heads
+
+  c) Any sequence with 2 Heads and 1 Tail (in any order)
+
+  d) Any sequence in which the number of Heads is greater than or equal to the number of Tails.
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Parking lot problem}
+\label{un1-ps1-parking-lot}
+
+\begin{exercise}
+  \textbf{Parking lot problem}\\
+  Mary and Tom park their cars in an empty parking lot with $n \ge 2$ consecutive
+  parking spaces (i.e, $n$ spaces in a row, where only one car fits in each space).
+  Mary and Tom pick parking spaces at random; of course, they must each choose a
+  different space. (All pairs of distinct parking spaces are equally likely.)
+  What is the probability that there is at most one empty parking space between them?
+  Your answer should be a function of $n$, entered using standard notation.
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Probabilities on a continuous sample space}
+\label{un1-ps1-continuous-sample-space}
+
+\begin{exercise}
+  \textbf{Probabilities on a continuous sample space}\\
+  Alice and Bob each choose at random a real number between zero and one. We
+  assume that the pair of numbers is chosen according to the uniform probability
+  law on the unit square, so that the probability of an event is equal to its area.
+  We define the following events:
+
+  \begin{figure}[H]
+    \begin{center}
+      %\caption{}
+      %\label{fig:}
+      %\includegraphics[scale=0.6]{imagens/unit-1/ps-001.jpg}%
+      \fbox{\includegraphics[scale=0.6]{imagens/unit-1/ps-003.png}}
+    \end{center}
+  \end{figure}
+
+  Find the following probabilities:
+
+  a) $P(A)$
+
+  b) $P(B)$
+
+  c) $P(A \cap B)$
+
+  d) $P(C)$
+
+  e) $P(D)$
+
+  f) $P(A \cap D)$
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Upper and lower bounds on the probability of intersection}
+\label{un1-ps1-prob-intersection}
+
+\begin{exercise}
+  \textbf{Upper and lower bounds on the probability of intersection}\\
+  Given two events $A, B$ with $P(A)=3/4$ and $P(B)=1/3$, what is the smallest
+  possible value of $P(A \cap B)$? The largest? That is, find $a$ and $b$ such that,
+  $a \le P(A \cap B) \le b$, holds and any value in the closed interval [a,b]
+  is possible.
+\end{exercise}
+
+
+
 
 
 
