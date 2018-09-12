@@ -7066,6 +7066,877 @@ some interesting relations between probabilities.
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Unit 2: Conditioning and independence (2018/09/10)}
+\label{un2}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Unit overview}
+\label{un2-ovw}
+
+Atention: Exercises due Sep 18, 2018 20:59:59 -03.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Motivation}
+\label{un2-ovw-motiv}
+
+Video: \href{https://www.youtube.com/watch?v=USpqFGeXmJY}{Motivation}
+
+You build a local communication network consisting
+of routers, computers, and some hard-wired links
+that connect them
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-1/ps-001.jpg}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/ovw-001.png}}
+  \end{center}
+\end{figure}
+
+However, each link has a small probability
+of being nonfunctional because of a hardware failure.
+Assuming that failures at different links
+happen \emph{independently}, how likely is it
+that a message from router A will still
+be able to reach your computer?
+
+Suppose now that you receive notice that one of the routers
+is down:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-1/ps-001.jpg}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/ovw-002.png}}
+  \end{center}
+\end{figure}
+
+Given this information, how would you
+update the probability that the message from router A
+will still be able to reach your computer?
+
+By the end of this unit, you will
+be able to answer questions of this type
+by using the concept of \emph{conditional probability}
+and by giving a precise meaning to the concept
+of \emph{independent} failures.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Unit 2 overview}
+\label{un2-ovw-ovw}
+
+Video: \href{https://www.youtube.com/watch?v=toHiVQvMWyQ}{Unit 2 overview}
+(\href{Unit-2/00\_overview/ovw\_1\_transcripts.pdf}{transcripts},
+\href{Unit-2/00\_overview/ovw\_1\_slides.pdf}{slides})
+
+In this unit we introduce the concepts of \emph{conditioning} and
+\emph{independence}\footnote{The material in this unit is covered in
+  Sections 1.3-1.5 of the text.}.
+
+Conditioning leads to revised (“conditional") probabilities that take into account
+partial information on the outcome of a probabilistic experiment. Conditioning
+is a very useful tool that allows us to “divide and conquer" complex problems.
+
+Independence is used to model situations involving non-interacting probabilistic
+phenomena and also plays an important role in building complex models from more
+elementary ones.
+
+In the first lecture, we introduced probabilities as a
+\emph{way of describing our beliefs about the likelihood that a
+given event will occur}.
+But our beliefs will in general \emph{depend on the
+information that we have}.
+
+Taking into account new information leads us to
+consider so-called \textbf{conditional probabilities}.
+These are \emph{revised probabilities that take into
+account the new information}.
+
+Conditional probabilities are very useful whenever we want
+to break up a model into simpler pieces using a divide
+and conquer strategy.
+This is done using certain tools that we will develop and
+which we will keep applying throughout this course in
+different guises.
+They are also the foundation of the field of \emph{inference}.
+And we will see how they arise in that context.
+
+Then, in the second lecture of this unit, we will consider a
+special case where \emph{one event does not convey useful
+information about another}, a situation that we call
+\textbf{independence}.
+
+Independence usually describes a situation where the
+occurrence or non-occurrence of different events is
+determined by \emph{factors that are completely unrelated}.
+Independence is what allows us to build complex models out of
+simple ones.
+This is because it is often the case that a complex system
+is made up of several components that are affected
+by unrelated, that is, independent sources of
+randomness.
+And so with the tools to be developed in this unit, we
+will be ready to calculate probabilities in fairly
+complex probabilistic models.
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-1/ps-001.jpg}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/ovw-003.png}}
+  \end{center}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Lecture 2: Conditioning and Bayes' rule}
+\label{un2-lec2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Overview}
+\label{un2-lec2-ovw}
+
+Video: \href{https://www.youtube.com/watch?v=5ucMVcxALKA}{Lecture 2 Overview}
+(\href{Unit-2/01\_lecture\_2/l02\_1\_transcripts.pdf}{transcripts},
+\href{Unit-2/01\_lecture\_2/l02\_1\_slides.pdf}{slides},
+\href{Unit-2/01\_lecture\_2/l02\_1\_slides\_annotated.pdf}{annotated slides})
+
+This lecture sequence introduces conditional probabilities and three basic tools:
+the multiplication rule, the total probability theorem, and Bayes' rule\footnote{The
+  same material, in live lecture hall format, can be found
+  \href{http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041-probabilistic-systems-analysis-and-applied-probability-fall-2010/video-lectures/lecture-2-conditioning-and-bayes-rule/}{here} and \href{http://www.youtube.com/watch?v=TluTv5V0RmE}{here}.}
+\footnote{More information is given in the text: Conditional probability (Section 1.3)
+  and Total probability theorem and Bayes' rule (Section 1.4)}.
+
+Suppose I look at the registry of residents of my town and
+pick a person at random.
+What is the probability that this person is
+under 18 years of age?
+The answer is about 25\%.
+
+Suppose now that I tell you that this person is married.
+Will you give the same answer? Of course not.
+The probability of being less than 18 years
+old is now much smaller.
+
+What happened here?
+We \emph{started with some initial probabilities} that reflect
+what we know or believe about the world.
+But we then \emph{acquired some additional
+knowledge}, some new evidence ---
+for example, about this person's family situation.
+This new knowledge should cause our beliefs to change,
+and the original probabilities must be replaced with new
+probabilities that take into account the new information.
+These revised probabilities are what we call \textbf{conditional
+  probabilities}.
+And this is the subject of this lecture.
+
+We will start with a \emph{formal definition} of conditional
+probabilities together with the motivation behind this
+particular definition.
+We will then proceed to develop \emph{three tools that rely
+on conditional probabilities}, including the Bayes rule,
+which provides a \emph{systematic way for incorporating new
+evidence into a probability model}:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-1/ps-001.jpg}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-001.png}}
+  \end{center}
+\end{figure}
+
+The three tools that we introduce in this lecture
+involve very simple and elementary mathematical
+formulas, yet they encapsulate some very powerful ideas.
+It is not an exaggeration to say that much of this class
+will revolve around the repeated application of
+variations of these three tools to increasingly
+complicated situations.
+
+In particular, the \emph{Bayes rule is the foundation for the
+field of inference}.
+It is a guide on how to process data and make
+inferences about unobserved quantities or phenomena.
+As such, it is a tool that is used all the time, all over
+science and engineering.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Conditional probabilities}
+\label{un2-lec2-cond-prob}
+
+Video: \href{https://www.youtube.com/watch?v=Ixse7rx8Vf0}{Conditional probabilities}
+(\href{Unit-2/01\_lecture\_2/l02\_2\_transcripts.pdf}{transcripts})
+
+\textbf{Conditional probabilities} are \emph{probabilities associated with
+a revised model that takes into account some additional
+information about the outcome of a probabilistic experiment}.
+The question is how to carry out this
+revision of our model.
+
+We will give a mathematical definition of conditional
+probabilities, but first let us motivate this definition by
+examining a simple concrete example.
+Consider a probability model with 12 equally likely
+possible outcomes, and so each one of them has probability
+equal to 1/12.
+We will focus on two particular events, event A and
+B, two subsets of the sample space:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-1/ps-001.jpg}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-002.png}}
+  \end{center}
+\end{figure}
+
+Event A has five elements, so its probability is 5/12, and
+event B has six elements, so it has probability 6/12.
+Suppose now that someone tells you that event B has occurred,
+but tells you nothing more about the outcome.
+How should the model change?
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-1/ps-001.jpg}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-003.png}}
+  \end{center}
+\end{figure}
+
+First, those outcomes that are outside event B
+are no longer possible.
+So we can either eliminate them, as was done in this
+picture, or we might keep them in the picture but assign them
+0 probability, so that they cannot occur.
+How about the outcomes inside the event B?
+So we're told that one of these has occurred.
+Now these 6 outcomes inside the event B were equally
+likely in the original model, and \emph{there is no reason to
+change their relative probabilities}.
+So they should remain equally likely in revised model as
+well, so each one of them should have now probability
+1/6 since there's 6 of them:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-1/ps-001.jpg}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-004.png}}
+  \end{center}
+\end{figure}
+
+And this is our revised model, the
+conditional probability law.
+0 probability to outcomes outside B, and probability 1/6
+to each one of the outcomes that is inside the event B.
+
+Let us write now this down mathematically.
+We will use this notation to describe the conditional
+probability of an event A given that some other event B
+is known to have occurred: $P(A | B)$.
+We read this expression as probability of A given B.
+
+So
+what are these conditional probabilities in our example?
+So in the new model, where these outcomes are equally
+likely, we know that event A can occur in
+two different ways.
+Each one of them has probability 1/6.
+So the probability of event A is 2/6 which
+is the same as 1/3.
+
+How about event B, $P(B | B)$? Well, B consists of 6 possible
+outcomes each with probability 1/6.
+So event B in this revised model should have probability
+equal to 1.
+Of course, this is just saying the obvious.
+Given that we already know that B has occurred, the
+probability that B occurs in this new model
+should be equal to 1.
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-1/ps-001.jpg}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-005.png}}
+  \end{center}
+\end{figure}
+
+How about now, if the sample space does not consist of
+equally likely outcomes, but instead we're given the
+probabilities of different pieces of the sample space, as
+in this example:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-1/ps-001.jpg}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-006.png}}
+  \end{center}
+\end{figure}
+
+Notice here that the probabilities are consistent
+with what was used in the original example.
+So this part of A that lies outside B has probability
+3/12, but in this case I'm not telling you how that
+probability is made up.
+I'm not telling you that it consists of 3
+equally likely outcomes.
+So all I'm telling you is that the collective probability in
+this region is 3/12.
+The total probability of A is, again, 5/12 as before.
+The total probability of B is 2 plus 4 equals
+6/12, exactly as before.
+So it's a sort of similar situation as before.
+How should we revise our probabilities and create ---
+construct ---
+conditional probabilities once we are told
+that event B has occurred?
+
+First, this relation, $P(B | B) = 1$, should remain true.
+Once we are told that B has occurred, then B is certain to
+occur, so it should have conditional
+probability equal to 1.
+
+How about the conditional probability of A given that B
+has occurred?
+Well, we can reason as follows.
+In the original model, and if we just look inside event B,
+those outcomes that make event A happen had a collective
+probability which was 1/3 of the total probability assigned
+to B. So out of the overall probability assigned to B, 1/3
+of that probability corresponds to outcomes in
+which event A is happening.
+So therefore, if I tell you that B has occurred, I should
+assign probability equal to 1/3 that event A is
+also going to happen.
+So that, given that B happened, the conditional
+probability of A given B should be equal to 1/3.
+
+By now, we should be satisfied that this approach is a
+reasonable way of constructing conditional probabilities.
+But now let us translate our reasoning into a formula.
+So we wish to come up with a formula that gives us the
+conditional probability of an event given another event:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-1/ps-001.jpg}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-007.png}}
+  \end{center}
+\end{figure}
+
+The particular formula that captures our way of thinking,
+as motivated before, is the following:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-1/ps-001.jpg}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-008.png}}
+  \end{center}
+\end{figure}
+
+Out of the total probability assigned to B ---
+which is this $P(B)$ ---
+we ask the question, which fraction of that probability
+is assigned to outcomes under which event A also happens, $P(A \cap B)$?
+So we are living inside event B, but within that event, we
+look at those outcomes for which event A also happens.
+So this is the intersection of A and B. And we ask, out of
+the total probability of B, what fraction of that
+probability is allocated to that intersection of A with B?
+
+So this formula, this definition, captures our
+intuition of what we did before to construct
+conditional probabilities in our particular example.
+Let us check that the definition indeed does what
+it's supposed to do.
+In this example, the probability of the
+intersection was 2/12 and the total probability of B was
+6/12, which gives us 1/3, which is the answer that we
+had gotten intuitively a little earlier.
+
+At this point, let me also make a comment that this
+definition of conditional probabilities makes sense only
+if we do not attempt to divide by zero, $P(B) > 0$:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    \includegraphics[scale=0.6]{imagens/unit-2/lec2-009.png}%
+    %\fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-001.png}}
+  \end{center}
+\end{figure}
+
+That this, only if the event B on which we're conditioning,
+has positive probability.
+If B, \emph{if an event B has 0 probability}, then conditional
+probabilities given B will be left \emph{undefined}.
+
+And one final comment.
+This is a \emph{definition}: $\displaystyle P(A | B) = \frac{P(A \cap B)}{P(B)}$.
+It's \emph{not a theorem}.
+What does that mean?
+It means that there is no question whether this equality
+is correct or not.
+It's just a definition.
+There's no issue of correctness.
+The earlier argument that we gave was just a motivation of
+the definition\footnote{$A \triangleq B$, same as $A \overset{\mathrm{def}}{=} B$,
+means ``A is by definition equal to B''.}.
+We tried to figure out what the definition should be if we
+want to have a certain intuitive and meaningful
+interpretation of the conditional probabilities.
+Let us now continue with a simple example.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Exercise: Conditional probabilities}
+\label{un2-lec2-ex-cond-prob}
+
+\begin{exercise}
+  \textbf{Conditional probabilities}\\
+  Are the following statements true of false?
+
+  a) If $\Omega$ is finite and we have a discrete uniform probability law, and if
+  $B \ne 0$, then the conditional probability law on $B$, given that $B$ occurred,
+  is also discrete uniform.
+  \begin{itemize}[noitemsep]
+  \item[$\bigcirc$] True
+  \item[$\bigcirc$] False
+  \end{itemize}
+
+  b) If $\Omega$ is finite and we have a discrete uniform probability law, and if
+  $B \ne 0$, then the conditional probability law on $\Omega$, given that $B$ occurred,
+  is also discrete uniform.
+  \begin{itemize}[noitemsep]
+  \item[$\bigcirc$] True
+  \item[$\bigcirc$] False
+  \end{itemize}
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{A die roll example}
+\label{un2-lec2-die-roll-example}
+
+Video: \href{https://www.youtube.com/watch?v=snQLH-KzpLY}{A die roll example}
+(\href{Unit-2/01\_lecture\_2/l02\_4\_transcripts.pdf}{transcripts})
+
+This is a simple example where we want to just apply the
+formula for conditional probabilities
+and see what we get.
+The example involves a four-sided die, if you can
+imagine such an object, which we roll twice, and we record
+the first roll, and the second roll.
+So there are 16 possible outcomes.
+We assume to keep things simple, that each one of those
+16 possible outcomes, each one of them has the same
+probability, so each outcome has the probability 1/16:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-2/lec2-009.png}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-010.png}}
+  \end{center}
+\end{figure}
+
+Let us consider now a particular event B on which
+we're going to condition.
+This is the event under which the smaller of the two die
+rolls is equal to 2, $B = \min(X, Y)$, which means that one of the dice
+must have resulted in two, and the other die has resulted in
+something which is 2 or larger.
+So this can happen in multiple ways.
+And here are the different ways that it can happen:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-2/lec2-009.png}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-011.png}}
+  \end{center}
+\end{figure}
+
+So at 2, 2, or 2, 3, or 2, 4; then a 3, 2 and a 4, 2.
+All of these are outcomes in which one of the dice has a
+value equal to 2, and the other die
+is at least as large.
+So we condition on this event.
+This results in a conditional model where each one of those
+five outcomes are equally likely since they used to be
+equally likely in the original model.
+
+Now let's look at this quantity.
+The maximum of the two die rolls ---
+that is, the largest of the results $M = \max(X, Y)$.
+And let us try to calculate the following quantity ---
+$P(M=1|B)$, the conditional probability that the maximum is equal to 1
+given that the minimum is equal to 2.
+So this is the conditional probability of
+this particular outcome.
+Well, this particular outcome cannot happen.
+If I tell you that the smaller number is 2, then the larger
+number cannot be equal to 1, so this outcome is impossible,
+and therefore this conditional probability is equal to 0:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-2/lec2-009.png}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-012.png}}
+  \end{center}
+\end{figure}
+
+Let's do something a little more interesting.
+Let us now look at the conditional probability that
+the maximum is equal to 3 given the information that
+event B has occurred, $P(M=3|B)$.
+It's best to draw a picture and see what that event
+corresponds to.
+M is equal to 3 ---
+the maximum is equal to 3 ---
+if one of the dice resulted in a 3, and the other die
+resulted in something that's 3 or less.
+So this event here corresponds to the blue
+region in this diagram:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-2/lec2-009.png}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-013.png}}
+  \end{center}
+\end{figure}
+
+Now let us try to calculate the conditional probability by
+just following the definition.
+The conditional probability of one event given another is the
+probability that both of them ---
+both of the two events ---
+occur, divided by the probability of the
+conditioning event.
+That is, out of the total probability in the
+conditioning event, we ask, what fraction of that
+probability is assigned to outcomes in which the event of
+interest is also happening?
+
+So what is this event?
+The maximum is equal to 3, which is the blue event.
+And simultaneously, the red event is happening.
+These two events intersect only in two places.
+This is the intersection of the two events:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-2/lec2-009.png}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-014.png}}
+  \end{center}
+\end{figure}
+
+And the probability of that intersection is 2 out of 16,
+since there's 16 outcomes and that event happens only with
+two particular outcomes.
+So this gives us 2/16 in the numerator.
+How about the denominator?
+Event B consists of a total of five possible outcomes.
+Each one has probability 1/16, so this is 5/16, so the final
+answer is 2/5.
+
+We could have gotten that same answer in a simple and perhaps
+more intuitive way.
+In the original model, all outcomes were equally likely.
+Therefore, in the conditional model, the five outcomes that
+belong to B should also be equally likely.
+Out of those five, there's two of them that make the event of
+interest to occur.
+So \emph{given that we live in B}, there's two ways out of five
+that the event of interest will materialize.
+So the event of interest has
+conditional probability [equal to]
+2/5.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Exercise: Conditional probabilities in a continuous model}
+\label{un2-lec2-ex-cond-prob2}
+
+\begin{exercise}
+  \textbf{Conditional probabilities in a continuous model}\\
+  Let the sample space be the unit square, $\Omega=[0,1]^2$, and let the probability
+  of a set be the area of the set. Let $A$ be the set of points $(x,y) \in [0,1]^2$
+  for which $y \le x$. Let be $B$ the set of points for which
+  $x \le 1/2$. Find $P(A|B)$.
+\end{exercise}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Conditional probabilities obey the same axioms}
+\label{un2-lec2-cond-prob-axioms}
+
+Video: \href{https://www.youtube.com/watch?v=sn2wDa6SI\_E}{Conditional probabilities obey the same axioms}
+(\href{Unit-2/01\_lecture\_2/l02\_6\_transcripts.pdf}{transcripts})
+
+I now want to emphasize an important point.
+Conditional probabilities are \emph{just the same as ordinary
+probabilities applied to a different situation}.
+They do not taste or smell or behave any differently than
+ordinary probabilities.
+What do I mean by that?
+I mean that they \emph{satisfy the usual probability axioms}.
+
+For example, ordinary probabilities must also be
+non-negative.
+Is this true for conditional probabilities?
+Of course it is true, because conditional probabilities are
+defined as a ratio of two probabilities.
+Probabilities are non-negative.
+So the ratio will also be non-negative, of course as
+long as it is well-defined.
+And here we need to remember that we only talk about
+conditional probabilities when we condition on an event that
+itself has positive probability:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-2/lec2-009.png}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-015.png}}
+  \end{center}
+\end{figure}
+
+How about another axiom?
+What is the probability of the entire sample space,
+given the event B?
+Let's check it out.
+By definition, the conditional probability is the probability
+of the intersection of the two events involved divided by the
+probability of the conditioning event.
+Now, what is the intersection of omega with B?
+B is a subset of omega.
+So when we intersect the two sets, we're
+left just with B itself.
+So the numerator becomes the probability of B. We're
+dividing by the probability of B, and so the
+answer is equal to 1.
+So indeed, the sample space has unit probability, even
+under the conditional model:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-2/lec2-009.png}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-016.png}}
+  \end{center}
+\end{figure}
+
+Now, remember that \emph{when we condition on an event B, we
+could still work with the original sample space}.
+However, possible outcomes that do not belong to B are
+considered impossible, so we might as well think of B
+itself as being our sample space.
+If we proceed like that and think now of B as being our
+new sample space, what is the probability of this new sample
+space in the conditional model?
+Let's apply the definition once more.
+It's the probability of the intersection of the two events
+involved, B intersection B, divided by the probability of
+the conditioning event.
+What is the numerator?
+The intersection of B with itself is just B, so the
+numerator is the probability of B. We're dividing by the
+probability of B. So the answer is, again, 1:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-2/lec2-009.png}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-017.png}}
+  \end{center}
+\end{figure}
+
+Finally, we need to check the additivity axiom.
+Recall what the additivity axiom says.
+If we have two events, two subsets of the sample space
+that are disjoint, then the probability of their union is
+equal to the sum of their individual probabilities.
+Is this going to be the case if we now condition on a
+certain event?
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-2/lec2-009.png}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-018.png}}
+  \end{center}
+\end{figure}
+
+What we want to prove is the following statement:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-2/lec2-009.png}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-019.png}}
+  \end{center}
+\end{figure}
+
+If we take two events that are disjoint, they have empty
+intersection, then the probability of the union is
+the sum of their individual probabilities, but where now
+the probabilities that we're employing are the conditional
+probabilities, given the event B. So let us verify whether
+this relation, this fact is correct or not.
+Let us take this quantity and use the
+definition to write it out.
+By definition, this conditional probability is the
+probability of the intersection of the first
+event of interest, the one that appears on this side of
+the conditioning, intersection with the event on which we are
+conditioning.
+And then we divide by the probability of the
+conditioning event, B:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-2/lec2-009.png}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-020.png}}
+  \end{center}
+\end{figure}
+
+Now, let's look at this quantity,
+what is it?
+We're taking the union of A with C, and then intersect it
+with B. This union consists of these two pieces:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-2/lec2-009.png}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-021.png}}
+  \end{center}
+\end{figure}
+
+When we intersect with B, what is left is
+these two pieces here.
+So A union C intersected with B is the union of two pieces.
+One piece is A intersection B, this piece here.
+And another piece, which is C intersection B, this is the
+second piece here.
+So here we basically used a set theoretic identity.
+And now we divide by the same [denominator]
+as before:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-2/lec2-009.png}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-022.png}}
+  \end{center}
+\end{figure}
+
+And now let us continue.
+Here's an interesting observation.
+The events A and C are disjoint.
+The piece of A that also belongs in B, therefore, is
+disjoint from the piece of C that also belongs to B.
+Therefore, this set here and that set here are disjoint.
+Since they are disjoint, the probability of their union has
+to be equal to the sum of their individual
+probabilities.
+So here we're using the additivity axiom on the
+original probabilities to break this probability up into
+two pieces:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-2/lec2-009.png}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-023.png}}
+  \end{center}
+\end{figure}
+
+And now we observe that here we have the ratio of an
+intersection by the probability of B. This is just
+the conditional probability of A given B using the definition
+of conditional probabilities.
+And the second part is the conditional probability of C
+given B, where, again, we're using the definition of
+conditional probabilities:
+
+\begin{figure}[H]
+  \begin{center}
+    %\caption{}
+    %\label{fig:}
+    %\includegraphics[scale=0.6]{imagens/unit-2/lec2-009.png}%
+    \fbox{\includegraphics[scale=0.6]{imagens/unit-2/lec2-024.png}}
+  \end{center}
+\end{figure}
+
+So we have indeed checked that this additivity property is
+true for the case of conditional probabilities when
+we consider two disjoint events.
+Now, we could repeat the same derivation and verify that it
+is also true for the case of a disjoint union, of finitely
+many events, or even for countably
+many disjoint events.
+So we do have \emph{finite} and \emph{countable} additivity.
+
+We're not proving it, but the argument is exactly the same
+as for the case of two events.
+So conditional probabilities do satisfy all of the standard
+axioms of probability theory.
+So conditional probabilities are just like ordinary
+probabilities.
+This actually has a very important implication.
+Since conditional probabilities satisfy all of
+the probability axioms, any formula or theorem that we
+ever derive for ordinary probabilities will remain true
+for conditional probabilities as well.
+
+
+
+
+
+
 
 
 
@@ -7079,12 +7950,3 @@ some interesting relations between probabilities.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \end{document}
-
-
-
-
-
-
-
-
-
